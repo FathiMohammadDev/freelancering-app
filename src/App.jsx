@@ -1,8 +1,13 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AuthContainer from "./features/auth/AuthContainer";
+
+const queryClient = new QueryClient();
+
 function App() {
   return (
-    <p className="">
-      hello world   :-)
-    </p>
+    <QueryClientProvider client={queryClient}>
+      <AuthContainer />;
+    </QueryClientProvider>
   );
 }
 
