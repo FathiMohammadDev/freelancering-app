@@ -6,7 +6,10 @@ const SendOTPForm = () => {
       <form className="space-y-4">
         <div>
           <label className="block text-text_light mb-1">Phone number:</label>
-          <input type="text" className="w-full bg-bg_light p-2 outline-0 rounded-lg text-text_light" />
+          <input
+            type="text"
+            className="w-full bg-bg_light p-2 outline-0 rounded-lg text-text_light"
+          />
         </div>
         <button
           type="sumbit"
