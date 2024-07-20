@@ -1,30 +1,17 @@
-import { useMutation } from "@tanstack/react-query";
-import React, { useState } from "react";
-import { getOTP } from "../../services/authService";
-import toast from "react-hot-toast";
-
-const SendOTPForm = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
-
-  const { data, error, isPending, mutateAsync } = useMutation({
-    mutationFn: getOTP,
-  });
-
-  const sendOtpHandler = async (e) => {
+const SendOTPForm = ({
+  phoneNumber,
+  setPhoneNumber,
+  sendOtpHandler,
+  isPending,
+}) => {
+  const sumbitFormHandler = (e) => {
     e.preventDefault();
-    try {
-      const { data } = await mutateAsync({ phoneNumber });
-      toast.success(data.data.message);
-      console.log(data);
-    } catch (error) {
-      toast.error(error?.response?.data?.message);
-      console.log(error);
-    }
+    sendOtpHandler();
   };
 
   return (
     <div>
-      <form className="space-y-4" onSubmit={(e) => sendOtpHandler(e)}>
+      <form className="space-y-4" onSubmit={(e) => sumbitFormHandler(e)}>
         <div>
           <label className="block text-text_light mb-1">Phone number:</label>
           <input
