@@ -21,7 +21,7 @@ export default {
         primary: withOpacity("63, 162, 246"),
         bg_light: withOpacity("241,245,249"),
         text_bold: withOpacity("(33,33,33)"),
-        text_light: withOpacity("(130,130,130)"),
+        text_light: withOpacity("(122,122,122)"),
       }
     },
   },
