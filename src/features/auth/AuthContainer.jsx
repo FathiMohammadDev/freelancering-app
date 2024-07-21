@@ -41,6 +41,7 @@ const AuthContainer = () => {
           <CheckOTPForm
             phoneNumber={phoneNumber}
             sendOtpHandler={sendOtpHandler}
+            onBack={() => setStep(1)}
           />
         );
       default:

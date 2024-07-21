@@ -4,7 +4,7 @@ import OtpInput from "react-otp-input";
 import { checkOTP } from "../../services/authService";
 import { toast } from "react-hot-toast";
 
-const CheckOTPForm = ({ phoneNumber, sendOtpHandler }) => {
+const CheckOTPForm = ({ phoneNumber, sendOtpHandler,onBack }) => {
   const [otp, setOtp] = useState("");
   // const [time, setTime] = useState(60);
 
@@ -72,7 +72,7 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler }) => {
       </form>
       <button
         className="text-primary text-sm font-semibold"
-      >
+        onClick={onBack}      >
         Change number?
       </button>
     </div>
