@@ -4,8 +4,9 @@
 
 @layer components {
     .form-btn {
-        @apply w-full bg-[rgb(1,1,1)] opacity-85 text-white  p-3 rounded-[35px] disabled:opacity-30 transition-all ease-in-out
+        @apply w-full bg-[rgb(1, 1, 1)] opacity-85 text-white p-3 rounded-[35px] flex items-center justify-center disabled:opacity-60 disabled:cursor-wait transition-all ease-in-out
     }
+
     .form-btn:hover {
         @apply bg-opacity-90 tracking-wide
     }
