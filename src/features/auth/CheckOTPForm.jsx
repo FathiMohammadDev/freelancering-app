@@ -65,7 +65,7 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler,onBack }) => {
         </div>
         <button
           type="sumbit"
-          className="bg-primary text-white font-bold p-3 rounded-lg w-full "
+          className="form-btn"
         >
           Send Code
         </button>
