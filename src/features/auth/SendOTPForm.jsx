@@ -1,3 +1,6 @@
+import TextField from "../../ui/TextField";
+import { Bars } from "react-loader-spinner";
+
 const SendOTPForm = ({
   phoneNumber,
   setPhoneNumber,
@@ -17,23 +20,25 @@ const SendOTPForm = ({
         <br /> send OTP code
       </p>
       <form className="space-y-4" onSubmit={(e) => sumbitFormHandler(e)}>
-        <div>
-          <label className="text-left block text-text_light mb-1">
-            Phone number:
-          </label>
-          <input
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            type="text"
-            className="w-full bg-bg_light p-2 outline-0 rounded-lg text-text_light"
-          />
-        </div>
-        <button
-          type="sumbit"
-          className="bg-primary text-white w-full font-bold p-2 rounded-lg disabled:opacity-30"
-          disabled={isPending && true}
-        >
-          Send Code
+        <TextField
+          label="Phone number"
+          value={phoneNumber}
+          setValue={(e) => setPhoneNumber(e.target.value)}
+        />
+        <button type="sumbit" className="form-btn" disabled={isPending && true}>
+          {isPending ? (
+            <Bars
+              height="25"
+              width="25"
+              color="#fff"
+              ariaLabel="bars-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+            />
+          ) : (
+            "Send code"
+          )}
         </button>
       </form>
     </div>
