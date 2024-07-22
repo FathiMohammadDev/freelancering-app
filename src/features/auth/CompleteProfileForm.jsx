@@ -25,36 +25,55 @@ const CompleteProfileForm = () => {
   };
 
   return (
-    <div className="text-center">
-      <h1 className="text-xl font-medium text-text_bold">Create account</h1>
-      <p className="text-text_light text-sm py-2">
-        Please type your mobile number to
-        <br /> send OTP code
+    <div className="space-y-4 p-5 text-center">
+      <h1 className="text-3xl font-medium text-text_bold">
+        Welcome to <span className="text-primary font-bold">LOGO</span>
+      </h1>
+      <p className="text-text_light text-sm py-2 pb-5">
+        Complete your profile to activat your
+        <br /> account app
       </p>
-      <form className="space-y-4" onSubmit={(e) => sumbitFormHandler(e)}>
-        <div>
-          <label className="text-left block text-text_light mb-1">Name:</label>
+      <form className="space-y-2" onSubmit={(e) => sumbitFormHandler(e)}>
+        <div className="relative">
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             type="text"
-            className="w-full bg-bg_light p-2 outline-0 rounded-lg text-text_light"
+            className="peer w-full outline-0 text-[rgb(125,125,125)] font-medium rounded-[35px] pb-2 pt-3 px-4 border-[1px] border-[rgb(125,125,125)] mb-4"
           />
+          <label
+            className={`pointer-events-none absolute  ${
+              name !== "" ? "-top-3 left-4 scale-90" : "top-[10px] left-4"
+            } text-[rgb(187,187,187)] transition-all ease-in-out bg-white px-2 peer-focus:-top-3 peer-focus:scale-90 peer-focus:text-[rgb(125,125,125)]`}
+          >
+            Username
+          </label>
         </div>
-        <div>
-          <label className="text-left block text-text_light mb-1">Email:</label>
+        <div className="relative">
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            type="text"
-            className="w-full bg-bg_light p-2 outline-0 rounded-lg text-text_light"
+            type="email"
+            className="peer w-full outline-0 text-[rgb(125,125,125)] font-medium rounded-[35px] pb-2 pt-3 px-4 border-[1px] border-[rgb(125,125,125)] mb-4"
           />
+          <label
+            className={`pointer-events-none absolute  ${
+              email !== "" ? "-top-3 left-4 scale-90" : "top-[10px] left-4"
+            } text-[rgb(187,187,187)] transition-all ease-in-out bg-white px-2 peer-focus:-top-3 peer-focus:scale-90 peer-focus:text-[rgb(125,125,125)]`}
+          >
+            Email
+          </label>
         </div>
-        <div className="flex justify-evenly">
+        <div className="flex items-center justify-evenly ">
           <div className="flex justify-center items-center">
-            <label htmlFor="FREELANCER">Freelancer</label>
+            <label
+              htmlFor="FREELANCER"
+              className="text-[rgb(122,122,122)] font-medium"
+            >
+              Freelancer
+            </label>
             <input
-              className="cursor-pointer"
+              className="cursor-pointer ml-2 form-radio text-primary"
               type="radio"
               id="FREELANCER"
               value="FREELANCER"
@@ -64,9 +83,14 @@ const CompleteProfileForm = () => {
             />
           </div>
           <div>
-            <label htmlFor="OWNER">Owner</label>
+            <label
+              htmlFor="OWNER"
+              className="text-[rgb(122,122,122)] font-medium"
+            >
+              Owner
+            </label>
             <input
-              className="cursor-pointer"
+              className="cursor-pointer ml-2 form-radio text-primary"
               type="radio"
               id="OWNER"
               value="OWNER"
@@ -79,9 +103,9 @@ const CompleteProfileForm = () => {
         <button
           type="sumbit"
           disabled={isPending && true}
-          className="bg-primary text-white w-full font-bold p-2 rounded-lg disabled:opacity-30 disabled:opacity-30"
+          className="w-full  bg-[rgb(1,1,1)] opacity-85  text-white  p-3 rounded-[35px] disabled:opacity-30"
         >
-          Send Code
+          Complete
         </button>
       </form>
     </div>
