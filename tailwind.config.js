@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import tailwindFormPlugin from "@tailwindcss/forms"
 
 const withOpacity = (variableName) => {
   console.log(variableName, "hello")
@@ -25,5 +26,9 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    tailwindFormPlugin({
+      strategy: 'class', 
+    }),
+  ],
 }
