@@ -5,5 +5,9 @@ export const getOTP = (data) => {
 }
 
 export const checkOTP = (data) => {
-   return http.post("/user/check-otp", data)
+    return http.post("/user/check-otp", data)
+}
+
+export const completeProfile = (data) => {
+    return http.post("/user/complete-profile", data)
 }
