@@ -29,8 +29,8 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler, onBack }) => {
       const { data } = await mutateAsync({ otp, phoneNumber });
       toast.success(data.data.message);
       if (!data.data.user.isActive) return navigate("/complete-profile");
-      if (!data.data.user.role === "OWNER") return navigate("/owner");
-      if (!data.data.user.role === "FREELANCER") return navigate("/freelancer");
+      if (data.data.user.role === "OWNER") return navigate("/owner");
+      if (data.data.user.role === "FREELANCER") return navigate("/freelancer");
       console.log(data);
     } catch (error) {
       toast.error(error?.response?.data?.message);
