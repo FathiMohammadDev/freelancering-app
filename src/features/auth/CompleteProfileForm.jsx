@@ -2,11 +2,13 @@ import { useState } from "react";
 import { completeProfile } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CompleteProfileForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
+  const navigate = useNavigate()
 
   const { data, isPending, error, mutateAsync } = useMutation({
     mutationFn: completeProfile,
@@ -18,6 +20,13 @@ const CompleteProfileForm = () => {
       const { data } = await mutateAsync({ name, email, role });
       toast.success(data.data.message);
       console.log(data);
+      if (data.data.user.status !== 2) {
+        navigate("/");
+        toast.error("wait for conformation");
+        return
+      }
+      if (data.data.user.role === "OWNER") return navigate("/owner");
+      if (data.data.user.role === "FREELANCER") return navigate("/freelancer");
     } catch (error) {
       toast.error(error?.response?.data?.message);
       console.log(error);
