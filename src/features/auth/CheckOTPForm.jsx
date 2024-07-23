@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import OtpInput from "react-otp-input";
 import { checkOTP } from "../../services/authService";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
-const CheckOTPForm = ({ phoneNumber, sendOtpHandler,onBack }) => {
+const CheckOTPForm = ({ phoneNumber, sendOtpHandler, onBack }) => {
   const [otp, setOtp] = useState("");
+  const navigate = useNavigate();
   // const [time, setTime] = useState(60);
 
   // useEffect(() => {
@@ -26,6 +28,9 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler,onBack }) => {
     try {
       const { data } = await mutateAsync({ otp, phoneNumber });
       toast.success(data.data.message);
+      if (!data.data.user.isActive) return navigate("/complete-profile");
+      if (!data.data.user.role === "OWNER") return navigate("/owner");
+      if (!data.data.user.role === "FREELANCER") return navigate("/freelancer");
       console.log(data);
     } catch (error) {
       toast.error(error?.response?.data?.message);
@@ -63,16 +68,11 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler,onBack }) => {
             containerStyle="flex justify-center items-cnter"
           />
         </div>
-        <button
-          type="sumbit"
-          className="form-btn"
-        >
+        <button type="sumbit" className="form-btn">
           Send Code
         </button>
       </form>
-      <button
-        className="text-primary text-sm font-semibold"
-        onClick={onBack}      >
+      <button className="text-primary text-sm font-semibold" onClick={onBack}>
         Change number?
       </button>
     </div>
