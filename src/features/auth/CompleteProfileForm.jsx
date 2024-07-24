@@ -3,12 +3,13 @@ import { completeProfile } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import TextField from "../../ui/TextField";
 
 const CompleteProfileForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { data, isPending, error, mutateAsync } = useMutation({
     mutationFn: completeProfile,
@@ -23,7 +24,7 @@ const CompleteProfileForm = () => {
       if (data.data.user.status !== 2) {
         navigate("/");
         toast.error("wait for conformation");
-        return
+        return;
       }
       if (data.data.user.role === "OWNER") return navigate("/owner");
       if (data.data.user.role === "FREELANCER") return navigate("/freelancer");
@@ -43,36 +44,17 @@ const CompleteProfileForm = () => {
         <br /> account app
       </p>
       <form className="space-y-2" onSubmit={(e) => sumbitFormHandler(e)}>
-        <div className="relative">
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            className="peer w-full outline-0 text-[rgb(125,125,125)] font-medium rounded-[35px] pb-2 pt-3 px-4 border-[1px] border-[rgb(125,125,125)] mb-4"
-          />
-          <label
-            className={`pointer-events-none absolute  ${
-              name !== "" ? "-top-3 left-4 scale-90" : "top-[10px] left-4"
-            } text-[rgb(187,187,187)] transition-all ease-in-out bg-white px-2 peer-focus:-top-3 peer-focus:scale-90 peer-focus:text-[rgb(125,125,125)]`}
-          >
-            Username
-          </label>
-        </div>
-        <div className="relative">
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            className="peer w-full outline-0 text-[rgb(125,125,125)] font-medium rounded-[35px] pb-2 pt-3 px-4 border-[1px] border-[rgb(125,125,125)] mb-4"
-          />
-          <label
-            className={`pointer-events-none absolute  ${
-              email !== "" ? "-top-3 left-4 scale-90" : "top-[10px] left-4"
-            } text-[rgb(187,187,187)] transition-all ease-in-out bg-white px-2 peer-focus:-top-3 peer-focus:scale-90 peer-focus:text-[rgb(125,125,125)]`}
-          >
-            Email
-          </label>
-        </div>
+        <TextField
+          value={name}
+          setValue={(e) => setName(e.target.value)}
+          label="Username"
+        />
+        <TextField
+          value={email}
+          type="email"
+          setValue={(e) => setEmail(e.target.value)}
+          label="Email"
+        />
         <div className="flex items-center justify-evenly ">
           <div className="flex justify-center items-center">
             <label
