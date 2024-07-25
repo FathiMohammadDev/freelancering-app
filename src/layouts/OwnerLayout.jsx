@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
+import OwnerSidebar from "./OwnerSidebar";
 
 const OwnerLayout = () => {
   return (
     <div>
       <div>header</div>
-      <div>sidbar</div>
+      <OwnerSidebar />
       <Outlet />
     </div>
   );
