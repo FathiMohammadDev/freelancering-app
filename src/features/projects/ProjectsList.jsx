@@ -1,6 +1,11 @@
 import { MdEdit, MdDelete } from "react-icons/md";
+import { useOwnerProjects } from "./useOwnerProjects";
 
 const ProjectsList = () => {
+  const { isError, isLoading, projects } = useOwnerProjects();
+
+  console.log(isError, isLoading, projects);
+
   return (
     <>
       <h1 className="text-xl font-medium">Projects</h1>
