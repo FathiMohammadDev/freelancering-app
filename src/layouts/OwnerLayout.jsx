@@ -3,10 +3,12 @@ import OwnerSidebar from "./OwnerSidebar";
 
 const OwnerLayout = () => {
   return (
-    <div>
-      <div>header</div>
+    <div className="bg-[#121432]">
       <OwnerSidebar />
-      <Outlet />
+      <div className="bg-white rounded-l-[40px] ml-60 h-screen">
+        <div>header</div>
+        <Outlet />
+      </div>
     </div>
   );
 };
