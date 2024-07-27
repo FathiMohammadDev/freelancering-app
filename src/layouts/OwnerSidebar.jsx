@@ -7,21 +7,25 @@ const options = [
     name: "Dashboard",
     to: "dashboard",
     icon: <LuLayoutDashboard className="w-5 h-5" />,
+    id: 1,
   },
   {
     name: "Projects",
     to: "projects",
     icon: <IoIosCodeWorking className="w-5 h-5" />,
+    id: 2,
   },
   {
     name: "Profile",
     to: "profile",
     icon: <LuUserCircle className="w-5 h-5" />,
+    id: 3,
   },
   {
     name: "Logout",
     to: "logout",
     icon: <IoIosLogOut className="w-5 h-5" />,
+    id: 4,
   },
 ];
 
@@ -31,7 +35,12 @@ const OwnerSidebar = () => {
       <div className="text-2xl text-white text-center">LOgO</div>
       <ul className="flex flex-col gap-6 items-start">
         {options.map((option) => (
-          <SidebarItem to={option.to} name={option.name} icon={option.icon} />
+          <SidebarItem
+            key={option.id}
+            to={option.to}
+            name={option.name}
+            icon={option.icon}
+          />
         ))}
       </ul>
     </aside>
