@@ -1,6 +1,7 @@
 import { MdEdit, MdDelete } from "react-icons/md";
 import { useOwnerProjects } from "./useOwnerProjects";
 import { truncate } from "../../utils/truncate";
+import { toLocalDate } from "../../utils/toLocalDate";
 
 const ProjectsList = () => {
   const { isLoading, projects } = useOwnerProjects();
@@ -38,10 +39,10 @@ export default ProjectsList;
 const Project = ({ title, budget, category, deadline }) => {
   return (
     <div className="bg-[#f3f5fa] p-5 rounded-2xl flex items-center justify-between gap-20 text-[rgb(93,92,92)] text-sm">
-      <h3 className="text-base font-medium flex-1">{truncate(title,24)}</h3>
+      <h3 className="text-base font-medium flex-1">{truncate(title, 24)}</h3>
       <div>{category}</div>
       <div>{budget}$</div>
-      <div>{deadline}</div>
+      <div>{toLocalDate(deadline)}</div>
       {/* <div>Freelancer</div> */}
       <div className="flex items-center justify-center gap-5">
         <MdEdit className="w-5 h-5" />
