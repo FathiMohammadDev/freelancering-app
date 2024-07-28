@@ -20,9 +20,10 @@ const ProjectsList = () => {
     <>
       <h1 className="text-xl font-medium">Projects</h1>
       <div className="space-y-5">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <Project
             key={project._id}
+            projectNum={index + 1}
             title={project.title}
             budget={project.budget}
             category={project.category.title}
@@ -36,9 +37,10 @@ const ProjectsList = () => {
 
 export default ProjectsList;
 
-const Project = ({ title, budget, category, deadline }) => {
+const Project = ({ title, budget, category, deadline, projectNum }) => {
   return (
-    <div className="bg-[#f3f5fa] p-5 rounded-2xl flex items-center justify-between gap-20 text-[rgb(93,92,92)] text-sm">
+    <div className="bg-[#f3f5fa] p-5 rounded-2xl flex items-center justify-between gap-10 text-[rgb(93,92,92)] text-sm">
+      <div className="bg-purple-400 text-white font-semibold py-3 px-4 rounded-xl">{projectNum}</div>
       <h3 className="text-base font-medium flex-1">{truncate(title, 24)}</h3>
       <div>{category}</div>
       <div>{budget}$</div>
