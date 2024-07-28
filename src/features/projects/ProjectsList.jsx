@@ -21,6 +21,7 @@ const ProjectsList = () => {
         {projects.map((project, index) => (
           <Project
             key={project._id}
+            id={project._id}
             projectNum={index + 1}
             title={project.title}
             budget={project.budget}
