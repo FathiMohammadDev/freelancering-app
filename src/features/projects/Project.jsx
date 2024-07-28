@@ -3,6 +3,7 @@ import Modal from "../../ui/Modal";
 import { MdEdit, MdDelete } from "react-icons/md";
 import { truncate } from "../../utils/truncate";
 import { toLocalDate } from "../../utils/toLocalDate";
+import ConfirmDelete from "../../ui/ConfirmDelete";
 
 const Project = ({ title, budget, category, deadline, projectNum }) => {
   const [showRemoveProject, setShowRemoveProject] = useState(false);
@@ -35,19 +36,11 @@ const Project = ({ title, budget, category, deadline, projectNum }) => {
           open={showRemoveProject}
           onClose={() => setShowRemoveProject(!showRemoveProject)}
         >
-          <div className="space-y-4">
-            <h3 className="text-lg text-text_light">
-              Do you want remove {title} ?
-            </h3>
-            <div className="flex items-center justify-between">
-              <button className="bg-primary text-white font-bold p-2 rounded-md">
-                Remove
-              </button>
-              <button className="text-primary border-2 border-primary p-1 rounded-md">
-                Undo
-              </button>
-            </div>
-          </div>
+          <ConfirmDelete
+            title={title}
+            onClose={() => setShowRemoveProject(!showRemoveProject)}
+            disabled={false}
+          />
         </Modal>
       </div>
     </div>
