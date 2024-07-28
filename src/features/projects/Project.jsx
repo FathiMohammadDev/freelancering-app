@@ -4,10 +4,14 @@ import { MdEdit, MdDelete } from "react-icons/md";
 import { truncate } from "../../utils/truncate";
 import { toLocalDate } from "../../utils/toLocalDate";
 import ConfirmDelete from "../../ui/ConfirmDelete";
+import { useRemoveOwnerProject } from "./useRemoveOwnerProject";
 
-const Project = ({ title, budget, category, deadline, projectNum }) => {
+const Project = ({ title, budget, category, deadline, projectNum, id }) => {
   const [showRemoveProject, setShowRemoveProject] = useState(false);
   const [showEditProject, setShowEditProject] = useState(false);
+  const { mutate: removeProject, isPending: disabled } =
+    useRemoveOwnerProject();
+
   return (
     <div className="bg-[#f3f5fa] p-5 rounded-2xl flex items-center justify-between gap-10 text-[rgb(93,92,92)] text-sm">
       <div className="bg-purple-400 text-white font-semibold py-3 px-4 rounded-xl">
@@ -39,7 +43,12 @@ const Project = ({ title, budget, category, deadline, projectNum }) => {
           <ConfirmDelete
             title={title}
             onClose={() => setShowRemoveProject(!showRemoveProject)}
-            disabled={false}
+            disabled={disabled}
+            onConfirm={() =>
+              removeProject(id, {
+                onSuccess: () => setShowRemoveProject(false),
+              })
+            }
           />
         </Modal>
       </div>

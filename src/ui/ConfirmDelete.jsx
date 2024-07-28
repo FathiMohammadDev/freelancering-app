@@ -1,9 +1,10 @@
-const ConfirmDelete = ({ title, onClose, disabled }) => {
+const ConfirmDelete = ({ title, onClose, disabled, onConfirm }) => {
   return (
     <div className="space-y-4">
       <h3 className="text-lg text-text_light">Do you want remove {title} ?</h3>
       <div className="flex items-center justify-between">
         <button
+          onClick={onConfirm}
           disabled={disabled}
           className="bg-primary text-white font-bold p-2 rounded-md disabled:opacity-45"
         >
