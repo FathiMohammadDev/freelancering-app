@@ -1,24 +1,27 @@
-import { useState } from "react";
 import { completeProfile } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import TextField from "../../ui/TextField";
+import { useForm } from "react-hook-form";
 
 const CompleteProfileForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+    watch,
+  } = useForm();
   const navigate = useNavigate();
 
   const { data, isPending, error, mutateAsync } = useMutation({
     mutationFn: completeProfile,
   });
 
-  const sumbitFormHandler = async (e) => {
-    e.preventDefault();
+  const sumbitFormHandler = async (values) => {
+    console.log(values);
     try {
-      const { data } = await mutateAsync({ name, email, role });
+      const { data } = await mutateAsync(values);
       toast.success(data.data.message);
       console.log(data);
       if (data.data.user.status !== 2) {
@@ -43,17 +46,32 @@ const CompleteProfileForm = () => {
         Complete your profile to activat your
         <br /> account app
       </p>
-      <form className="space-y-2" onSubmit={(e) => sumbitFormHandler(e)}>
+      <form className="space-y-2" onSubmit={handleSubmit(sumbitFormHandler)}>
         <TextField
-          value={name}
-          setValue={(e) => setName(e.target.value)}
-          label="Username"
+          register={register}
+          errors={errors}
+          validationschema={{
+            required: "required",
+            minLength: {
+              value: 10,
+              message: "Min length 10 character",
+            },
+          }}
+          name="name"
         />
         <TextField
-          value={email}
+          register={register}
+          errors={errors}
+          validationschema={{
+            required: "required",
+            pattern: {
+              value:
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              message: "email format wran",
+            },
+          }}
+          name="email"
           type="email"
-          setValue={(e) => setEmail(e.target.value)}
-          label="Email"
         />
         <div className="flex items-center justify-evenly ">
           <div className="flex justify-center items-center">
@@ -69,8 +87,8 @@ const CompleteProfileForm = () => {
               id="FREELANCER"
               value="FREELANCER"
               name="role"
-              checked={role === "FREELANCER"}
-              onChange={(e) => setRole(e.target.value)}
+              checked={watch("role") === "FREELANCER"}
+              {...register("role", { required: "this field requiredz" })}
             />
           </div>
           <div>
@@ -86,10 +104,13 @@ const CompleteProfileForm = () => {
               id="OWNER"
               value="OWNER"
               name="role"
-              checked={role === "OWNER"}
-              onChange={(e) => setRole(e.target.value)}
+              checked={watch("role") === "OWNER"}
+              {...register("role", { required: "this field required" })}
             />
           </div>
+          <span className="text-sm text-rose-600 self-start">
+        {errors && errors.role?.message}
+      </span>
         </div>
         <button
           type="sumbit"
