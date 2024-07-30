@@ -13,10 +13,11 @@ const AuthContainer = () => {
     mutationFn: getOTP,
   });
 
-  const sendOtpHandler = async () => {
+  const sendOtpHandler = async (value) => {
     try {
-      const { data } = await mutateAsync({ phoneNumber });
+      const { data } = await mutateAsync({ phoneNumber: value });
       toast.success(data.data.message);
+      setPhoneNumber(value)
       setStep(2);
       console.log(data);
     } catch (error) {
@@ -29,12 +30,7 @@ const AuthContainer = () => {
     switch (step) {
       case 1:
         return (
-          <SendOTPForm
-            phoneNumber={phoneNumber}
-            setPhoneNumber={(value) => setPhoneNumber(value)}
-            sendOtpHandler={sendOtpHandler}
-            isPending={isPending}
-          />
+          <SendOTPForm sendOtpHandler={sendOtpHandler} isPending={isPending} />
         );
       case 2:
         return (

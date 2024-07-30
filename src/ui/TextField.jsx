@@ -1,19 +1,27 @@
-const TextField = ({ value, setValue, type = "text", label }) => {
+const TextField = ({
+  type = "text",
+  name,
+  register,
+  errors,
+  validationschema,
+}) => {
+  console.log(errors);
   return (
-    <div className="relative">
-      <input
-        value={value}
-        onChange={setValue}
-        type={type}
-        className="peer w-full outline-0 text-[rgb(125,125,125)] font-medium rounded-[35px] pb-2 pt-3 px-4 border-[1px] border-[rgb(125,125,125)] mb-4"
-      />
+    <div className="flex flex-col justify-center items-start gap-2">
       <label
-        className={`pointer-events-none absolute  ${
-          value !== "" ? "-top-3 left-4 scale-90" : "top-[10px] left-4"
-        } text-[rgb(187,187,187)] transition-all ease-in-out bg-white px-2 peer-focus:-top-3 peer-focus:scale-90 peer-focus:text-[rgb(125,125,125)]`}
+        className="pointer-events-none text-right  
+         text-[rgb(187,187,187)] "
       >
-        {label}
+        {name}
       </label>
+      <input
+        {...register(name, validationschema)}
+        type={type}
+        className="peer w-full outline-0 text-[rgb(125,125,125)] bg-bg_light font-medium rounded-[35px] pb-2 pt-3 px-4"
+      />
+      <span className="text-sm text-rose-600 self-start">
+        {errors && errors[name]?.message}
+      </span>
     </div>
   );
 };

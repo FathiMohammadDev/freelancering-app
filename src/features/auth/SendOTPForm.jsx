@@ -1,16 +1,17 @@
+import { useForm } from "react-hook-form";
 import TextField from "../../ui/TextField";
 import { Bars } from "react-loader-spinner";
 
-const SendOTPForm = ({
-  phoneNumber,
-  setPhoneNumber,
-  sendOtpHandler,
-  isPending,
-}) => {
-  const sumbitFormHandler = (e) => {
-    e.preventDefault();
-    sendOtpHandler();
+const SendOTPForm = ({ sendOtpHandler, isPending }) => {
+  const sumbitFormHandler = (data) => {
+    sendOtpHandler(data["Phone number"]);
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   return (
     <div className="text-center">
@@ -19,11 +20,26 @@ const SendOTPForm = ({
         Please type your mobile number to
         <br /> send OTP code
       </p>
-      <form className="space-y-4" onSubmit={(e) => sumbitFormHandler(e)}>
+      <form className="space-y-4" onSubmit={handleSubmit(sumbitFormHandler)}>
         <TextField
-          label="Phone number"
-          value={phoneNumber}
-          setValue={(e) => setPhoneNumber(e.target.value)}
+          register={register}
+          errors={errors}
+          validationschema={{
+            required: "required",
+            pattern: {
+              value: /[0-9]/,
+              message: "please enter number",
+            },
+            minLength: {
+              value: 11,
+              message: "should be 11 character",
+            },
+            maxLength: {
+              value: 11,
+              message: "should be 11 character",
+            },
+          }}
+          name="Phone number"
         />
         <button type="sumbit" className="form-btn" disabled={isPending && true}>
           {isPending ? (
