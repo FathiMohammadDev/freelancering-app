@@ -1,7 +1,5 @@
 import { useOwnerProjects } from "./useOwnerProjects";
 import Project from "./Project";
-import Modal from "../../ui/Modal";
-import CreateOwnerProjectForm from "./CreateOwnerProjectForm";
 
 const ProjectsList = () => {
   const { isLoading, projects } = useOwnerProjects();
@@ -31,9 +29,6 @@ const ProjectsList = () => {
             deadline={project.deadline}
           />
         ))}
-        <Modal open={true}>
-          <CreateOwnerProjectForm />
-        </Modal>
       </div>
     </>
   );
