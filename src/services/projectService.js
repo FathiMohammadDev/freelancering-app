@@ -8,3 +8,7 @@ export const getOwnerProjectApi = () => {
 export const deleteOwnerProjectApi = (id) => {
     return http.delete(`/project/${id}`).then(({ data }) => data.data)
 }
+
+export const createOwnerProjectApi = (values) => {
+    return http.post("/project/add", values).then(({ data }) => data.data)
+}
