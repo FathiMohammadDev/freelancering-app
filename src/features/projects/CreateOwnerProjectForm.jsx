@@ -5,20 +5,32 @@ import { useState } from "react";
 import TagsField from "../../ui/TagsField";
 import DateField from "../../ui/DateField";
 import { useCategories } from "../../hooks/useCategories";
+import { useCreateOwnerProject } from "./useCreateOwnerProject";
 
-const CreateOwnerProjectForm = () => {
+const CreateOwnerProjectForm = ({ onClose }) => {
   const [tags, setTags] = useState([]);
   const [date, setDate] = useState(new Date());
-  const {categories} = useCategories()
-console.log(categories);
+  const { categories } = useCategories();
+  const { isPending, mutate } = useCreateOwnerProject();
   const {
     handleSubmit,
     register,
     formState: { errors },
+    reset
   } = useForm();
 
   const onSubmit = (values) => {
-    console.log(values);
+    const newProject = {
+      ...values,
+      tags,
+      deadline: new Date(date).toISOString(),
+    };
+
+    console.log(newProject);
+    mutate(newProject, { onSuccess: () => {
+      onClose()
+      reset()
+    } });
   };
 
   return (
@@ -33,7 +45,7 @@ console.log(categories);
             message: "should be 11 character",
           },
         }}
-        name="Title"
+        name="title"
       />
       <TextField
         register={register}
@@ -45,7 +57,7 @@ console.log(categories);
             message: "should be 11 character",
           },
         }}
-        name="Description"
+        name="description"
       />
       <TextField
         register={register}
@@ -57,11 +69,11 @@ console.log(categories);
             message: "please enter number",
           },
         }}
-        name="Budjet"
+        name="budget"
       />
       <SelectField name="category" options={categories} register={register} />
       <TagsField name="tags" tags={tags} onChange={setTags} />
-      <DateField date={date} setDate={setDate} name="Dedline" />
+      <DateField date={date} setDate={setDate} name="dedline" />
       <button className="form-btn">Edit project</button>
     </form>
   );
