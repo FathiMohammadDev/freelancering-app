@@ -7,7 +7,6 @@ import { useState } from "react";
 const ProjectsList = () => {
   const { isLoading, projects } = useOwnerProjects();
   const [open, setOpen] = useState(false);
-  console.log(isLoading, projects);
 
   if (isLoading) return <p className="text-center">is loading...</p>;
 

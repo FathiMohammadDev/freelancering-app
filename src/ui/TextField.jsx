@@ -5,7 +5,6 @@ const TextField = ({
   errors,
   validationschema,
 }) => {
-  console.log(errors);
   return (
     <div className="flex flex-col justify-center items-start gap-2">
       <label
