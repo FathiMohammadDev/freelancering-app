@@ -7,6 +7,7 @@ import ConfirmDelete from "../../ui/ConfirmDelete";
 import { useRemoveOwnerProject } from "./useRemoveOwnerProject";
 import CreateOwnerProjectForm from "./CreateOwnerProjectForm";
 import ToggleProjectStatus from "./ToggleProjectStatus";
+import { Link } from "react-router-dom";
 
 const Project = ({ project, projectNum }) => {
   const [showRemoveProject, setShowRemoveProject] = useState(false);
@@ -20,7 +21,9 @@ const Project = ({ project, projectNum }) => {
         {projectNum}
       </div>
       <h3 className="text-base font-medium flex-1">
-        {truncate(project.title, 24)}
+        <Link to={`/owner/projects/${project._id}`}>
+          {truncate(project.title, 24)}
+        </Link>
       </h3>
       <ToggleProjectStatus project={project} />
       <div>{project.category.title}</div>
