@@ -6,6 +6,7 @@ import { toLocalDate } from "../../utils/toLocalDate";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import { useRemoveOwnerProject } from "./useRemoveOwnerProject";
 import CreateOwnerProjectForm from "./CreateOwnerProjectForm";
+import ToggleProjectStatus from "./ToggleProjectStatus";
 
 const Project = ({ project, projectNum }) => {
   const [showRemoveProject, setShowRemoveProject] = useState(false);
@@ -21,6 +22,7 @@ const Project = ({ project, projectNum }) => {
       <h3 className="text-base font-medium flex-1">
         {truncate(project.title, 24)}
       </h3>
+      <ToggleProjectStatus project={project} />
       <div>{project.category.title}</div>
       <div>{project.budget}$</div>
       <div>{toLocalDate(project.deadline)}</div>
