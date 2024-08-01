@@ -6,18 +6,42 @@ import TagsField from "../../ui/TagsField";
 import DateField from "../../ui/DateField";
 import { useCategories } from "../../hooks/useCategories";
 import { useCreateOwnerProject } from "./useCreateOwnerProject";
+import { useEditOwnerProject } from "./useEditOwnerProject";
 
-const CreateOwnerProjectForm = ({ onClose }) => {
-  const [tags, setTags] = useState([]);
-  const [date, setDate] = useState(new Date());
+const CreateOwnerProjectForm = ({ onClose, projectToEdit = {} }) => {
+  const editId = projectToEdit._id;
+  const editMode = Boolean(editId);
+  const {
+    title,
+    description,
+    budget,
+    deadline,
+    category,
+    tags: prevTags,
+  } = projectToEdit;
+
+  let editValues = {};
+
+  if (editMode) {
+    editValues = {
+      title,
+      description,
+      budget,
+      category: category._id,
+    };
+  }
+
+  const [tags, setTags] = useState(prevTags || []);
+  const [date, setDate] = useState(new Date(deadline || ""));
   const { categories } = useCategories();
   const { isPending, mutate } = useCreateOwnerProject();
+  const { isEditing, editProject } = useEditOwnerProject();
   const {
     handleSubmit,
     register,
     formState: { errors },
-    reset
-  } = useForm();
+    reset,
+  } = useForm({ defaultValues: editValues });
 
   const onSubmit = (values) => {
     const newProject = {
@@ -25,12 +49,24 @@ const CreateOwnerProjectForm = ({ onClose }) => {
       tags,
       deadline: new Date(date).toISOString(),
     };
-
-    console.log(newProject);
-    mutate(newProject, { onSuccess: () => {
-      onClose()
-      reset()
-    } });
+    if (editMode) {
+      editProject(
+        { id: editId, values: newProject },
+        {
+          onSuccess: () => {
+            onClose();
+            reset();
+          },
+        }
+      );
+    } else {
+      mutate(newProject, {
+        onSuccess: () => {
+          onClose();
+          reset();
+        },
+      });
+    }
   };
 
   return (

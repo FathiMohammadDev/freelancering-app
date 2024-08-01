@@ -32,13 +32,8 @@ const ProjectsList = () => {
       <div className="space-y-5">
         {projects.map((project, index) => (
           <Project
-            key={project._id}
-            id={project._id}
             projectNum={index + 1}
-            title={project.title}
-            budget={project.budget}
-            category={project.category.title}
-            deadline={project.deadline}
+            project={project}
           />
         ))}
         <Modal open={open} onClose={() => setOpen(false)}>

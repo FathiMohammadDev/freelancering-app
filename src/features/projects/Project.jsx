@@ -5,8 +5,9 @@ import { truncate } from "../../utils/truncate";
 import { toLocalDate } from "../../utils/toLocalDate";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import { useRemoveOwnerProject } from "./useRemoveOwnerProject";
+import CreateOwnerProjectForm from "./CreateOwnerProjectForm";
 
-const Project = ({ title, budget, category, deadline, projectNum, id }) => {
+const Project = ({ project, projectNum }) => {
   const [showRemoveProject, setShowRemoveProject] = useState(false);
   const [showEditProject, setShowEditProject] = useState(false);
   const { mutate: removeProject, isPending: disabled } =
@@ -17,10 +18,12 @@ const Project = ({ title, budget, category, deadline, projectNum, id }) => {
       <div className="bg-purple-400 text-white font-semibold py-3 px-4 rounded-xl">
         {projectNum}
       </div>
-      <h3 className="text-base font-medium flex-1">{truncate(title, 24)}</h3>
-      <div>{category}</div>
-      <div>{budget}$</div>
-      <div>{toLocalDate(deadline)}</div>
+      <h3 className="text-base font-medium flex-1">
+        {truncate(project.title, 24)}
+      </h3>
+      <div>{project.category.title}</div>
+      <div>{project.budget}$</div>
+      <div>{toLocalDate(project.deadline)}</div>
       <div className="flex items-center justify-center gap-5">
         <MdEdit
           className="w-5 h-5 cursor-pointer"
@@ -30,7 +33,10 @@ const Project = ({ title, budget, category, deadline, projectNum, id }) => {
           open={showEditProject}
           onClose={() => setShowEditProject(!showEditProject)}
         >
-          <p>not completed edit project ):</p>
+          <CreateOwnerProjectForm
+            projectToEdit={project}
+            onClose={() => setShowEditProject(false)}
+          />
         </Modal>
         <MdDelete
           className="w-5 h-5 cursor-pointer"
@@ -41,11 +47,11 @@ const Project = ({ title, budget, category, deadline, projectNum, id }) => {
           onClose={() => setShowRemoveProject(!showRemoveProject)}
         >
           <ConfirmDelete
-            title={title}
+            title={project.title}
             onClose={() => setShowRemoveProject(!showRemoveProject)}
             disabled={disabled}
             onConfirm={() =>
-              removeProject(id, {
+              removeProject(project._id, {
                 onSuccess: () => setShowRemoveProject(false),
               })
             }
