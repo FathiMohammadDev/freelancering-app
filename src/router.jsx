@@ -5,6 +5,7 @@ import AuthPage from "./pages/AuthPage";
 import CompleteProfilePage from "./pages/CompleteProfilePage";
 import OwnerLayout from "./layouts/OwnerLayout";
 import OwnerDashboardPage from "./pages/OwnerDashboardPage";
+import ProjectPage from "./pages/ProjectPage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -17,7 +18,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Navigate to="dashboard" /> },
       { path: "dashboard", element: <OwnerDashboardPage /> },
       { path: "projects", element: <div>projects</div> },
-      { path: "projects/:id", element: <div>project</div> },
+      { path: "projects/:id", element: <ProjectPage /> },
     ],
   },
   { path: "*", element: <NotFoundPage /> },
