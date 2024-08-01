@@ -12,3 +12,7 @@ export const deleteOwnerProjectApi = (id) => {
 export const createOwnerProjectApi = (values) => {
     return http.post("/project/add", values).then(({ data }) => data.data)
 }
+
+export const editOwnerProjectApi = ({ id, values }) => {
+    return http.patch(`/project/update/${id}`, values).then(({ data }) => data.data)
+}
