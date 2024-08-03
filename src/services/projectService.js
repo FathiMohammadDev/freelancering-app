@@ -19,3 +19,6 @@ export const editOwnerProjectApi = ({ id, values }) => {
 export const toggleOwnerProjectApi = ({ id, values }) => {
     return http.patch(`/project/${id}`, values).then(({ data }) => data.data)
 }
+export const getOwnerSingleProjectApi = (id) => {
+    return http.get(`/project/${id}`).then(({ data }) => data.data)
+}
