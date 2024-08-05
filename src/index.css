@@ -41,8 +41,8 @@
 }
 
 .rti--container {
-    background-color: rgb(241, 245, 249);
-    border: 0;
+    /* background-color: rgb(241, 245, 249); */
+    border: 1px solid rgb(235, 235, 235);
     width: 100%;
     border-radius: 35px;
     --rti-radius: "0.375rem",
@@ -54,7 +54,7 @@
 
 @layer components {
     .form-btn {
-        @apply w-full bg-[#010101] opacity-85 text-white p-3 rounded-[35px] flex items-center justify-center disabled:opacity-50 transition-all ease-in-out
+        @apply w-full bg-[#101010] opacity-85 text-white p-[9px] rounded-[35px] flex items-center justify-center disabled:opacity-50 transition-all ease-in-out
     }
 
     .form-btn:hover {
@@ -63,5 +63,21 @@
 
     .form-btn:active {
         @apply bg-opacity-100 tracking-tight
+    }
+
+    .btn {
+        @apply py-2 px-4 text-sm font-semibold rounded-2xl
+    }
+
+    .input-field {
+        @apply w-full text-text_primary outline-0 border border-border rounded-[35px] py-2 px-4 placeholder:text-text_secondary
+    }
+
+    .err {
+        @apply text-xs text-error self-start
+    }
+
+    .label {
+        @apply pointer-events-none text-right text-text_primary text-sm font-medium
     }
 }

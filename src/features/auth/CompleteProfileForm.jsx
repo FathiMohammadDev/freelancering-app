@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import TextField from "../../ui/TextField";
 import { useForm } from "react-hook-form";
+import Logo from "../../ui/Logo";
 
 const CompleteProfileForm = () => {
   const {
@@ -38,11 +39,11 @@ const CompleteProfileForm = () => {
   };
 
   return (
-    <div className="space-y-4 p-5 text-center">
-      <h1 className="text-3xl font-medium text-text_bold">
-        Welcome to <span className="text-primary font-bold">LOGO</span>
+    <div className="space-y-4 p-5">
+      <h1 className="text-2xl items-center justify-center font-medium text-text_bold flex gap-5">
+        Welcome to <Logo />
       </h1>
-      <p className="text-text_light text-sm py-2 pb-5">
+      <p className="text-text_light text-center text-sm py-2 pb-5">
         Complete your profile to activat your
         <br /> account app
       </p>
@@ -58,6 +59,7 @@ const CompleteProfileForm = () => {
             },
           }}
           name="name"
+          placeholder="john doe"
         />
         <TextField
           register={register}
@@ -72,6 +74,7 @@ const CompleteProfileForm = () => {
           }}
           name="email"
           type="email"
+          placeholder="johndoe@gmail.com"
         />
         <div className="flex items-center justify-evenly ">
           <div className="flex justify-center items-center">
@@ -109,8 +112,8 @@ const CompleteProfileForm = () => {
             />
           </div>
           <span className="text-sm text-rose-600 self-start">
-        {errors && errors.role?.message}
-      </span>
+            {errors && errors.role?.message}
+          </span>
         </div>
         <button
           type="sumbit"

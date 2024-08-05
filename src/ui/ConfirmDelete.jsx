@@ -1,21 +1,29 @@
+import { FcHighPriority } from "react-icons/fc";
+
 const ConfirmDelete = ({ title, onClose, disabled, onConfirm }) => {
   return (
-    <div className="space-y-4">
-      <h3 className="text-lg text-text_light">Do you want remove {title} ?</h3>
-      <div className="flex items-center justify-between">
-        <button
-          onClick={onConfirm}
-          disabled={disabled}
-          className="bg-primary text-white font-bold p-2 rounded-md disabled:opacity-45"
-        >
-          Remove
-        </button>
+    <div className="flex items-center justify-center flex-col gap-6">
+      <div className="flex items-center justify-center gap-5 flex-col">
+        <FcHighPriority className=" h-16 w-16" />
+        <div className="text-xl font-bold text-error">Delete Project</div>
+      </div>
+      <h3 className="text-base text-text_secondary text-center">
+        you're going to delete the "<b>{title}</b>" project.
+      </h3>
+      <div className="w-full flex items-center justify-between gap-5">
         <button
           disabled={disabled}
           onClick={onClose}
-          className="text-primary border-2 border-primary p-1 rounded-md disabled:opacity-45"
+          className="btn bg-bg_light flex-1"
         >
-          Undo
+          No, Keep It.
+        </button>
+        <button
+          onClick={onConfirm}
+          disabled={disabled}
+          className="btn bg-error text-white flex-1"
+        >
+          Yes, Delete!
         </button>
       </div>
     </div>

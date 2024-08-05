@@ -1,25 +1,41 @@
 import { useOwnerProject } from "../features/project/useOwnerProject";
 import ProposalList from "../features/project/ProposalList";
+import ProjectDetails from "../features/project/ProjectDetails";
+import TableSkleton from "../ui/skeletons/TableSkeleton";
 
 const ProjectPage = () => {
   const { isLoading, project, isError } = useOwnerProject();
 
-  if (isLoading) return <p className="text-center">is loading...</p>;
+  if (isLoading)
+    return (
+      <div className="p-10 md:max-w-5xl">
+        <div className="p-5 bg-white rounded-2xl">
+          <div className="animate-pulse space-y-8">
+            <div className="bg-slate-300 h-4 w-44 rounded-lg"></div>
+            <div className="space-y-2">
+              <div className="bg-slate-200 h-4 w-[70%] rounded-lg"></div>
+              <div className="bg-slate-200 h-4 w-[70%] rounded-lg"></div>
+            </div>
+            <div className="bg-slate-200 h-4 w-12 rounded-lg"></div>
+          </div>
+          <TableSkleton />
+        </div>
+      </div>
+    );
 
   if (!project)
     return (
-      <p className="text-base text-slate-500 text-center">
+      <p className="text-base text-text_secondary text-center">
         ther is no project. create project
       </p>
     );
 
   return (
-    <div className="p-10 md:max-w-5xl ">
-      <div>
-        <h1>{project.title}</h1>
-        <p>{project.description}</p>
+    <div className="p-10 md:max-w-5xl">
+      <div className="bg-white rounded-2xl">
+        <ProjectDetails project={project} />
+        <ProposalList proposals={project.proposals} />
       </div>
-      <ProposalList proposals={project.proposals} />
     </div>
   );
 };

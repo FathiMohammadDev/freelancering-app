@@ -17,7 +17,7 @@ const AuthContainer = () => {
     try {
       const { data } = await mutateAsync({ phoneNumber: value });
       toast.success(data.data.message);
-      setPhoneNumber(value)
+      setPhoneNumber(value);
       setStep(2);
       console.log(data);
     } catch (error) {
@@ -45,7 +45,7 @@ const AuthContainer = () => {
     }
   };
 
-  return <div className="w-full sm:max-w-sm mx-auto p-5">{renderForms()}</div>;
+  return <div className="w-full mx-auto p-5">{renderForms()}</div>;
 };
 
 export default AuthContainer;

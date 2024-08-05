@@ -2,6 +2,7 @@ import { Switch } from "@headlessui/react";
 import { useState } from "react";
 import Toggle from "../../ui/Toggle";
 import { useToggleOwnerProject } from "./useToggleOwnerProject";
+import { Bars } from "react-loader-spinner";
 
 function ToggleProjectStatus({ project }) {
   const { status } = project;
@@ -17,11 +18,19 @@ function ToggleProjectStatus({ project }) {
   return (
     <div className="w-[5rem]">
       {istoggling ? (
-        <p>loading</p>
+        <Bars
+          height="25"
+          width="25"
+          color="#fff"
+          ariaLabel="bars-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
       ) : (
         <Toggle
           enabled={status === "OPEN" ? true : false}
-          label={status === "OPEN" ? "باز" : "بسته"}
+          label={status === "OPEN" ? "open" : "closed"}
           onChange={toggleHandler}
         />
       )}

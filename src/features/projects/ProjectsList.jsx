@@ -3,12 +3,13 @@ import Project from "./Project";
 import Modal from "../../ui/Modal";
 import CreateOwnerProjectForm from "./CreateOwnerProjectForm";
 import { useState } from "react";
+import TableSkleton from "../../ui/skeletons/TableSkeleton";
 
 const ProjectsList = () => {
   const { isLoading, projects } = useOwnerProjects();
   const [open, setOpen] = useState(false);
 
-  if (isLoading) return <p className="text-center">is loading...</p>;
+  if (isLoading) return <TableSkleton />;
 
   if (!projects?.length)
     return (
@@ -19,28 +20,60 @@ const ProjectsList = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center mb-3">
-        <h1 className="text-xl font-medium">Projects</h1>
-        <button
-          onClick={() => setOpen(!open)}
-          className="bg-primary p-2 bg-opacity-80 text-white rounded-xl"
-        >
-          Add project
-        </button>
-      </div>
-      <div className="space-y-5">
-        {projects.map((project, index) => (
-          <Project
-            projectNum={index + 1}
-            project={project}
-          />
-        ))}
-        <Modal open={open} onClose={() => setOpen(false)}>
-          <CreateOwnerProjectForm onClose={() => setOpen(false)} />
-        </Modal>
+      <div className="relative overflow-x-auto bg-white rounded-2xl">
+        <div className="flex items-center justify-between px-6 py-3">
+          <h2 className="font-bold text-text_primary">Projects</h2>
+          <button
+            onClick={() => setOpen(!open)}
+            className="bg-[#dcf4f4] py-2 px-4 bg-opacity-80 text-sm font-semibold text-[#4c9fa0] rounded-2xl"
+          >
+            Add project
+          </button>
+          <Modal open={open} onClose={() => setOpen(false)}>
+            <CreateOwnerProjectForm onClose={() => setOpen(false)} />
+          </Modal>
+        </div>
+        <table className="w-full text-sm text-left rtl:text-right text-text_secondary">
+          <Thead />
+          <tbody>
+            {projects.map((project, index) => (
+              <Project
+                key={project._id}
+                projectNum={index + 1}
+                project={project}
+              />
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
 };
 
 export default ProjectsList;
+
+const Thead = () => {
+  return (
+    <thead className="text-xs text-text_secondary font-bold">
+      <tr>
+        <th className="px-6 py-3">#</th>
+        <th className="px-6 py-3">Project name</th>
+        <th scope="col" className="px-6 py-3">
+          Status
+        </th>
+        <th scope="col" className="px-6 py-3">
+          Category
+        </th>
+        <th scope="col" className="px-6 py-3">
+          Price
+        </th>
+        <th scope="col" className="px-6 py-3">
+          deadline
+        </th>
+        <th scope="col" className="px-6 py-3">
+          Processes
+        </th>
+      </tr>
+    </thead>
+  );
+};

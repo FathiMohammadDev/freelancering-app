@@ -22,6 +22,7 @@ const SendOTPForm = ({ sendOtpHandler, isPending }) => {
       </p>
       <form className="space-y-4" onSubmit={handleSubmit(sumbitFormHandler)}>
         <TextField
+          placeholder="0918 663 3451"
           register={register}
           errors={errors}
           validationschema={{

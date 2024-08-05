@@ -8,6 +8,7 @@ import { useRemoveOwnerProject } from "./useRemoveOwnerProject";
 import CreateOwnerProjectForm from "./CreateOwnerProjectForm";
 import ToggleProjectStatus from "./ToggleProjectStatus";
 import { Link } from "react-router-dom";
+import { IoMdEye } from "react-icons/io";
 
 const Project = ({ project, projectNum }) => {
   const [showRemoveProject, setShowRemoveProject] = useState(false);
@@ -16,54 +17,62 @@ const Project = ({ project, projectNum }) => {
     useRemoveOwnerProject();
 
   return (
-    <div className="bg-[#f3f5fa] p-5 rounded-2xl flex items-center justify-between gap-10 text-[rgb(93,92,92)] text-sm">
-      <div className="bg-purple-400 text-white font-semibold py-3 px-4 rounded-xl">
-        {projectNum}
-      </div>
-      <h3 className="text-base font-medium flex-1">
+    <tr className="bg-white border-b-[1px] border-border ">
+      <td className="px-6 py-4">{projectNum}</td>
+      <th
+        scope="row"
+        className="px-6 py-4 font-medium text-text_primary whitespace-nowrap"
+      >
         <Link to={`/owner/projects/${project._id}`}>
           {truncate(project.title, 24)}
         </Link>
-      </h3>
-      <ToggleProjectStatus project={project} />
-      <div>{project.category.title}</div>
-      <div>{project.budget}$</div>
-      <div>{toLocalDate(project.deadline)}</div>
-      <div className="flex items-center justify-center gap-5">
-        <MdEdit
-          className="w-5 h-5 cursor-pointer"
-          onClick={() => setShowEditProject(true)}
-        />
-        <Modal
-          open={showEditProject}
-          onClose={() => setShowEditProject(!showEditProject)}
-        >
-          <CreateOwnerProjectForm
-            projectToEdit={project}
-            onClose={() => setShowEditProject(false)}
+      </th>
+      <td className="px-6 py-4">
+        <ToggleProjectStatus project={project} />
+      </td>
+      <td className="px-6 py-4">{project.category.title}</td>
+      <td className="px-6 py-4">{project.budget}$</td>
+      <td className="px-6 py-4">{toLocalDate(project.deadline)}</td>
+      <td className="px-6 py-4">
+        <div className="flex items-center justify-center gap-5">
+          <MdDelete
+            className="w-5 h-5 cursor-pointer text-error"
+            onClick={() => setShowRemoveProject(true)}
           />
-        </Modal>
-        <MdDelete
-          className="w-5 h-5 cursor-pointer"
-          onClick={() => setShowRemoveProject(true)}
-        />
-        <Modal
-          open={showRemoveProject}
-          onClose={() => setShowRemoveProject(!showRemoveProject)}
-        >
-          <ConfirmDelete
-            title={project.title}
+          <Modal
+            open={showRemoveProject}
             onClose={() => setShowRemoveProject(!showRemoveProject)}
-            disabled={disabled}
-            onConfirm={() =>
-              removeProject(project._id, {
-                onSuccess: () => setShowRemoveProject(false),
-              })
-            }
+          >
+            <ConfirmDelete
+              title={project.title}
+              onClose={() => setShowRemoveProject(!showRemoveProject)}
+              disabled={disabled}
+              onConfirm={() =>
+                removeProject(project._id, {
+                  onSuccess: () => setShowRemoveProject(false),
+                })
+              }
+            />
+          </Modal>
+          <MdEdit
+            className="w-5 h-5 cursor-pointer text-warning"
+            onClick={() => setShowEditProject(true)}
           />
-        </Modal>
-      </div>
-    </div>
+          <Modal
+            open={showEditProject}
+            onClose={() => setShowEditProject(!showEditProject)}
+          >
+            <CreateOwnerProjectForm
+              projectToEdit={project}
+              onClose={() => setShowEditProject(false)}
+            />
+          </Modal>
+          <Link to={`/owner/projects/${project._id}`}>
+            <IoMdEye className="w-5 h-5 cursor-pointer text-success" />
+          </Link>
+        </div>
+      </td>
+    </tr>
   );
 };
 
