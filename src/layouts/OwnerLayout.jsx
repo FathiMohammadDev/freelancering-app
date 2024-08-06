@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import OwnerSidebar from "./OwnerSidebar";
 import { useState } from "react";
 import DarkMode from "../ui/DarkMode";
+import User from "../features/auth/User";
 
 const OwnerLayout = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -9,8 +10,9 @@ const OwnerLayout = () => {
     <div className="bg-bg_light">
       <OwnerSidebar open={openSidebar} setOpen={() => setOpenSidebar(false)} />
       <div className="md:ml-[265px] h-screen">
-        <div className="bg-bg_primary p-3">
+        <div className="bg-bg_primary p-3 flex items-center gap-4">
           <DarkMode />
+          <User />
           <div className="md:hidden" onClick={() => setOpenSidebar(true)}>
             show
           </div>
