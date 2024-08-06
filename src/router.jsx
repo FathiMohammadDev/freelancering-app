@@ -6,6 +6,7 @@ import CompleteProfilePage from "./pages/CompleteProfilePage";
 import OwnerLayout from "./layouts/OwnerLayout";
 import OwnerDashboardPage from "./pages/OwnerDashboardPage";
 import ProjectPage from "./pages/ProjectPage";
+import ProjectsPage from "./pages/ProjectsPage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -17,7 +18,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate to="dashboard" /> },
       { path: "dashboard", element: <OwnerDashboardPage /> },
-      { path: "projects", element: <div>projects</div> },
+      { path: "projects", element: <ProjectsPage /> },
       { path: "projects/:id", element: <ProjectPage /> },
     ],
   },
