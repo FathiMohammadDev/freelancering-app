@@ -46,7 +46,7 @@ const OwnerSidebar = ({ open, setOpen }) => {
         open
           ? "-translate-x-0 md:-translate-x-0"
           : "-translate-x-[265px] md:-translate-x-0"
-      } bg-[#fff] fixed top-0 h-full space-y-16 border-border border-r-[1px] transition-all `}
+      } bg-bg_primary fixed top-0 h-full space-y-16 border-border border-r-[1px] transition-all `}
     >
       <Logo />
       {open && (

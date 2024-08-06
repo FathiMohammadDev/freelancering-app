@@ -17,7 +17,7 @@ const Project = ({ project, projectNum }) => {
     useRemoveOwnerProject();
 
   return (
-    <tr className="bg-white border-b-[1px] border-border ">
+    <tr className="bg-bg_primary border-b-[1px] border-border ">
       <td className="px-6 py-4">{projectNum}</td>
       <th
         scope="row"

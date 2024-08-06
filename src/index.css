@@ -3,40 +3,50 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    :root {
-
-        &,
-        &.light-mode {
-            --background-app-rgb: 244, 244, 246;
-            --color-primary: 25, 25, 25;
-            --color-secondary: 135, 135, 135;
-            --color-success: 0, 192, 115;
-            --color-warning: 255, 153, 0;
-            --color-error: 255, 71, 87;
-        }
-
-        &.dark-mode {
-            --color-secondary-900: 249, 250, 251;
-            --color-secondary-800: 243, 244, 246;
-            --color-secondary-700: 229, 231, 235;
-            --color-secondary-600: 209, 213, 219;
-            --color-secondary-500: 156, 163, 175;
-            --color-secondary-400: 107, 114, 128;
-            --color-secondary-300: 75, 85, 99;
-            --color-secondary-200: 55, 65, 81;
-            --color-secondary-100: 31, 41, 55;
-            --color-secondary-50: 17, 24, 39;
-            --color-secondary-0: 24, 33, 47;
-            --backdrop-color: 0, 0, 0;
-        }
-    }
-}
 
 @layer base {
     html {
         font-family: "Inter", sans-serif;
         font-style: normal;
+    }
+
+    :root {
+
+
+        &,
+        &.light-mode {
+            --primary: 63, 162, 246;
+            --bg-primary: 256, 256, 256;
+            --bg-light: 244, 244, 246;
+            --success: 0, 192, 115;
+            --warning: 255, 153, 0;
+            --error: 255, 71, 87;
+            --bg-active: 243, 243, 252;
+            --bg_modal: 0, 0, 0;
+            --icon: 180, 180, 199;
+            --border: 235, 235, 235;
+            --text_primary: 25, 25, 25;
+            --text_secondary: 152, 152, 152;
+            --pending: 226, 159, 97;
+            --accept: 85, 158, 159;
+        }
+
+        &.dark-mode {
+            --primary: 63, 162, 246;
+            --bg-primary: 31, 33, 33;
+            --bg-light: 0, 0, 0;
+            --success: 0, 192, 115;
+            --warning: 255, 153, 0;
+            --error: 255, 71, 87;
+            --bg-active: 60, 60, 60;
+            --bg_modal: 256, 256, 256;
+            --icon: 180, 180, 199;
+            --border: 50, 50, 50;
+            --text_primary: 238, 238, 238;
+            --text_secondary: 155, 155, 155;
+            --pending: 226, 159, 97;
+            --accept: 85, 158, 159;
+        }
     }
 }
 
@@ -70,7 +80,7 @@
     }
 
     .input-field {
-        @apply w-full text-text_primary outline-0 border border-border rounded-[35px] py-2 px-4 placeholder:text-text_secondary
+        @apply w-full text-text_primary outline-0 border border-border rounded-[35px] py-2 px-4 placeholder:text-text_secondary dark:bg-bg_primary
     }
 
     .err {

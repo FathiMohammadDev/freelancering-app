@@ -9,7 +9,7 @@ const ProjectPage = () => {
   if (isLoading)
     return (
       <div className="p-10 md:max-w-5xl">
-        <div className="p-5 bg-white rounded-2xl">
+        <div className="p-5 bg-bg_primary rounded-2xl">
           <div className="animate-pulse space-y-8">
             <div className="bg-slate-300 h-4 w-44 rounded-lg"></div>
             <div className="space-y-2">
@@ -32,7 +32,7 @@ const ProjectPage = () => {
 
   return (
     <div className="p-10 md:max-w-5xl">
-      <div className="bg-white rounded-2xl">
+      <div className="bg-bg_primary rounded-2xl">
         <ProjectDetails project={project} />
         <ProposalList proposals={project.proposals} />
       </div>

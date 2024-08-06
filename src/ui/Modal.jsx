@@ -13,7 +13,7 @@ const Modal = ({ children, open, onClose }) => {
     "fixed z-50 top-0 left-0 w-full -translate-y-full h-screen bg-bg_modal backdrop-blur-sm transition-all";
   return (
     <div ref={modalRef} className={`${open ? openClass : closeClass}`}>
-      <div className="bg-white rounded-2xl fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 shadow-sm w-full sm:max-w-md">
+      <div className="bg-bg_primary rounded-2xl fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 shadow-sm w-full sm:max-w-md">
         <div className="flex justify-end">
           <MdOutlineClose
             className="w-6 h-6 text-black cursor-pointer"

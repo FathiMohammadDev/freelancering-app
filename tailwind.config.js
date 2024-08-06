@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 import tailwindFormPlugin from "@tailwindcss/forms"
 
-const withOpacity = (variableName) => {
-  console.log(variableName);
-  return ({ opacityValue }) => {
-    if (opacityValue !== undefined) return `rgba(${variableName},${opacityValue})`
 
-    return `rgb(${variableName})`
-  }
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`;
+    }
+    return `rgb(var(${variableName}))`;
+  };
 }
 
 
@@ -17,19 +18,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: withOpacity("63, 162, 246"),
-        bg_light: withOpacity("244, 244, 246"),
-        bg_active: withOpacity("243,243,252"),
-        bg_modal: "rgba(0, 0, 0, 0.2)",
-        icon: withOpacity("180,180,199"),
-        border: withOpacity("235, 235, 235"),
-        text_primary: withOpacity("25, 25, 25"),
-        text_secondary: withOpacity("152, 152, 152"),
-        success: withOpacity("0, 192, 115"),
-        warning: withOpacity("255, 153, 0"),
-        error: withOpacity("255, 71, 87"),
-        pending: withOpacity("226,159,97"),
-        accept: withOpacity("85,158,159"),
+        primary: withOpacity("--primary"),
+        bg_light: withOpacity("--bg-light"),
+        bg_primary: withOpacity("--bg-primary"),
+        bg_active: withOpacity("--bg-active"),
+        bg_modal: withOpacity("--bg-modal"),
+        icon: withOpacity("--icon"),
+        border: withOpacity("--border"),
+        text_primary: withOpacity("--text_primary"),
+        text_secondary: withOpacity("--text_secondary"),
+        success: withOpacity("--success"),
+        warning: withOpacity("--warning"),
+        error: withOpacity("--error"),
+        pending: withOpacity("--pending"),
+        accept: withOpacity("--accept"),
       }
     },
   },

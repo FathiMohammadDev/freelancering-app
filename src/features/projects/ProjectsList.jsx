@@ -20,7 +20,7 @@ const ProjectsList = () => {
 
   return (
     <>
-      <div className="relative overflow-x-auto bg-white rounded-2xl">
+      <div className="relative overflow-x-auto bg-bg_primary rounded-2xl">
         <div className="flex items-center justify-between px-6 py-3">
           <h2 className="font-bold text-text_primary">Projects</h2>
           <button

@@ -1,6 +1,6 @@
 const TableSkleton = () => {
   return (
-    <table className="w-full  text-left rtl:text-right bg-white">
+    <table className="w-full  text-left rtl:text-right bg-bg_primary">
       <tbody className=" animate-pulse">
         <TableRow />
         <TableRow />
