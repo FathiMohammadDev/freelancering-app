@@ -10,7 +10,7 @@ const OwnerLayout = () => {
     <div className="bg-bg_light">
       <OwnerSidebar open={openSidebar} setOpen={() => setOpenSidebar(false)} />
       <div className="md:ml-[265px] min-h-screen">
-        <div className="bg-bg_primary p-3 flex items-center gap-4">
+        <div className="bg-bg_primary p-3 flex items-center gap-4 sticky top-0">
           <DarkMode />
           <User />
           <div className="md:hidden" onClick={() => setOpenSidebar(true)}>
