@@ -13,7 +13,7 @@ const FreelancerLayout = () => {
         open={openSidebar}
         setOpen={() => setOpenSidebar(false)}
       />
-      <div className="md:ml-[265px] h-screen">
+      <div className="md:ml-[265px] min-h-screen">
         <div className="bg-bg_primary p-3 flex items-center gap-4">
           <DarkMode />
           <User />
