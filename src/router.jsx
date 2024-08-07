@@ -9,6 +9,7 @@ import ProjectPage from "./pages/ProjectPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import FreelancerLayout from "./layouts/FreelancerLayout";
 import FreelancerDashboard from "./pages/FreelancerDashboard";
+import ProposalsPage from "./pages/ProposalsPage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -31,7 +32,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Navigate to="dashboard" /> },
       { path: "dashboard", element: <FreelancerDashboard /> },
       { path: "projects", element: <Navigate to="dashboard" /> },
-      { path: "proposals", element: <Navigate to="dashboard" /> },
+      { path: "proposals", element: <ProposalsPage /> },
     ],
   },
   { path: "*", element: <NotFoundPage /> },
