@@ -22,3 +22,7 @@ export const toggleOwnerProjectApi = ({ id, values }) => {
 export const getOwnerSingleProjectApi = (id) => {
     return http.get(`/project/${id}`).then(({ data }) => data.data)
 }
+
+export const getProjectsApi = () => {
+    return http.get("/project/list").then(({ data }) => data.data)
+}
