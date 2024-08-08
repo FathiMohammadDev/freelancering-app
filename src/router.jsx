@@ -10,6 +10,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import FreelancerLayout from "./layouts/FreelancerLayout";
 import FreelancerDashboard from "./pages/FreelancerDashboard";
 import ProposalsPage from "./pages/ProposalsPage";
+import FreelancerProjectsPage from "./pages/FreelancerProjectsPage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -31,7 +32,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate to="dashboard" /> },
       { path: "dashboard", element: <FreelancerDashboard /> },
-      { path: "projects", element: <Navigate to="dashboard" /> },
+      { path: "projects", element: <FreelancerProjectsPage /> },
       { path: "proposals", element: <ProposalsPage /> },
     ],
   },
