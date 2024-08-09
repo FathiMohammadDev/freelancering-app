@@ -1,5 +1,5 @@
 import { HiViewGrid, HiCurrencyDollar } from "react-icons/hi";
-import { FaCodePullRequest } from "react-icons/fa6";
+import { MdWallet } from "react-icons/md";
 import Stat from "./State";
 
 const Stats = ({ proposals }) => {
@@ -24,7 +24,7 @@ const Stats = ({ proposals }) => {
         num={balance}
         label="Wallet"
         color="yellow"
-        icon={<FaCodePullRequest className="w-20 h-20 text-white" />}
+        icon={<MdWallet className="w-20 h-20 text-white" />}
       />
     </div>
   );
