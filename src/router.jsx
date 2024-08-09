@@ -11,6 +11,7 @@ import FreelancerLayout from "./layouts/FreelancerLayout";
 import FreelancerDashboard from "./pages/FreelancerDashboard";
 import ProposalsPage from "./pages/ProposalsPage";
 import FreelancerProjectsPage from "./pages/FreelancerProjectsPage";
+import ProtectedRoutes from "./ui/ProtectedRoutes";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -18,7 +19,11 @@ export const router = createBrowserRouter([
   { path: "/complete-profile", element: <CompleteProfilePage /> },
   {
     path: "/owner",
-    element: <OwnerLayout />,
+    element: (
+      <ProtectedRoutes>
+        <OwnerLayout />
+      </ProtectedRoutes>
+    ),
     children: [
       { index: true, element: <Navigate to="dashboard" /> },
       { path: "dashboard", element: <OwnerDashboardPage /> },
@@ -28,7 +33,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/freelancer",
-    element: <FreelancerLayout />,
+    element: (
+      <ProtectedRoutes>
+        <FreelancerLayout />
+      </ProtectedRoutes>
+    ),
     children: [
       { index: true, element: <Navigate to="dashboard" /> },
       { path: "dashboard", element: <FreelancerDashboard /> },
