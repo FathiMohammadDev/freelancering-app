@@ -3,8 +3,6 @@ import useUser from "./useUser";
 
 const User = () => {
   const { isLoading, user } = useUser();
-
-  console.log(isLoading, user);
   return (
     <div
       className={`${isLoading && "opacity-20"} flex items-center justify-center`}
