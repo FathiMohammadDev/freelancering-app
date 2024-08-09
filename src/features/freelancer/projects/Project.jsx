@@ -28,7 +28,7 @@ const Project = ({ project }) => {
         </div>
         <div className="space-x-4">
           {project.tags.map((tag) => (
-            <span className="bg-bg_active capitalize text-sm text-text_secondary py-1 px-3 border border-border rounded-2xl">
+            <span key={tag} className="bg-bg_active capitalize text-sm text-text_secondary py-1 px-3 border border-border rounded-2xl">
               {tag}
             </span>
           ))}

@@ -16,7 +16,7 @@ const ProjectsList = () => {
       ) : (
         <div className="flex flex-col gap-10">
           {projects.map((project) => (
-            <Project project={project} />
+            <Project project={project} key={project._id} />
           ))}
         </div>
       )}
