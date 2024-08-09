@@ -23,6 +23,6 @@ export const getOwnerSingleProjectApi = (id) => {
     return http.get(`/project/${id}`).then(({ data }) => data.data)
 }
 
-export const getProjectsApi = () => {
-    return http.get("/project/list").then(({ data }) => data.data)
+export const getProjectsApi = (search) => {
+    return http.get(`/project/list${search}`).then(({ data }) => data.data)
 }
