@@ -1,12 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { MdAccountCircle } from "react-icons/md";
+import { MdAccountCircle, MdViewAgenda, MdViewArray, MdViewCarousel, MdViewComfy } from "react-icons/md";
 import { IoMdSettings, IoIosArrowBack } from "react-icons/io";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { MdGroupWork } from "react-icons/md";
 import { RiLogoutCircleFill } from "react-icons/ri";
 import { IoBackspaceSharp } from "react-icons/io5";
 import Logo from "../ui/Logo";
-import { AiFillAlert } from "react-icons/ai";
+import { AiFillAlert, AiOutlineUser } from "react-icons/ai";
+import { HiViewBoards, HiViewGrid } from "react-icons/hi";
+import { HiViewColumns } from "react-icons/hi2";
 const options = [
   {
     name: "Dashboard",
@@ -23,7 +25,13 @@ const options = [
   {
     name: "Proposals",
     to: "proposals",
-    icon: <AiFillAlert className="w-6 h-6" />,
+    icon: <MdViewAgenda className="w-6 h-6" />,
+    id: 3,
+  },
+  {
+    name: "Users",
+    to: "users",
+    icon: <AiOutlineUser className="w-6 h-6" />,
     id: 3,
   },
   {
@@ -31,12 +39,6 @@ const options = [
     to: "logout",
     icon: <RiLogoutCircleFill className="w-6 h-6" />,
     id: 4,
-  },
-  {
-    name: "setting",
-    to: "settnig",
-    icon: <IoMdSettings className="w-6 h-6" />,
-    id: 5,
   },
 ];
 
