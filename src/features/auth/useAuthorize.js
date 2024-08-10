@@ -9,7 +9,7 @@ export const useAuthorize = () => {
     let isAuthenticated = false
     if (user) isAuthenticated = true
     const ROLES = {
-        adimn: "ADMIN",
+        admin: "ADMIN",
         owner: "OWNER",
         freelancer: "FREELANCER",
     }
