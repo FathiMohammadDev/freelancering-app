@@ -13,6 +13,7 @@ import ProposalsPage from "./pages/ProposalsPage";
 import FreelancerProjectsPage from "./pages/FreelancerProjectsPage";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
 import AdminLayout from "./layouts/AdminLayout";
+import AdminDashboardPage from "./pages/AdminDashboardPage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -55,7 +56,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Navigate to="dashboard" /> },
-      { path: "dashboard", element: <div>dashboard admin</div> },
+      { path: "dashboard", element: <AdminDashboardPage /> },
       { path: "projects", element: <div>projects admin</div> },
       { path: "proposals", element: <div>proposals admin</div> },
       { path: "users", element: <div>users admin</div> },
