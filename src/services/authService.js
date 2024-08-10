@@ -14,3 +14,6 @@ export const completeProfile = (data) => {
 export function getUser() {
     return http.get("/user/profile").then(({ data }) => data.data);
 }
+export function getUsersApi() {
+    return http.get("/admin/user/list").then(({ data }) => data.data);
+}
