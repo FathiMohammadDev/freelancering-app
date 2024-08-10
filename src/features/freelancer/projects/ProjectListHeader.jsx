@@ -14,7 +14,7 @@ const ProjectListHeader = () => {
   return (
     <div>
       <h2 className="font-bold text-text_primary">Projects</h2>
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex gap-x-10 gap-y-5 flex-wrap items-center">
         <FilterDropDown
           options={[
             { label: "latest", value: "latest" },

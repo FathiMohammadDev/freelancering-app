@@ -14,7 +14,7 @@ const FilterDropDown = ({ options, filterValue }) => {
     <select
       value={currentFilter}
       onChange={(e) => handleChange(e)}
-      className="input-field"
+      className="input-field md:w-56"
     >
       {options.map((opt) => (
         <option key={opt.value} value={opt.label}>
