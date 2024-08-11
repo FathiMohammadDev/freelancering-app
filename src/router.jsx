@@ -14,6 +14,7 @@ import FreelancerProjectsPage from "./pages/FreelancerProjectsPage";
 import ProtectedRoutes from "./ui/ProtectedRoutes";
 import AdminLayout from "./layouts/AdminLayout";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
+import UsersPage from "./pages/UsersPage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -59,7 +60,7 @@ export const router = createBrowserRouter([
       { path: "dashboard", element: <AdminDashboardPage /> },
       { path: "projects", element: <div>projects admin</div> },
       { path: "proposals", element: <div>proposals admin</div> },
-      { path: "users", element: <div>users admin</div> },
+      { path: "users", element: <UsersPage /> },
     ],
   },
   { path: "*", element: <NotFoundPage /> },
