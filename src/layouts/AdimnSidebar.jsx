@@ -1,20 +1,10 @@
 import { NavLink } from "react-router-dom";
-import {
-  MdAccountCircle,
-  MdViewAgenda,
-  MdViewArray,
-  MdViewCarousel,
-  MdViewComfy,
-} from "react-icons/md";
-import { IoMdSettings, IoIosArrowBack } from "react-icons/io";
+import { MdViewAgenda, MdCategory } from "react-icons/md";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { MdGroupWork } from "react-icons/md";
-import { RiLogoutCircleFill } from "react-icons/ri";
 import { IoBackspaceSharp } from "react-icons/io5";
+import { HiUser } from "react-icons/hi2";
 import Logo from "../ui/Logo";
-import { AiFillAlert, AiOutlineUser } from "react-icons/ai";
-import { HiViewBoards, HiViewGrid } from "react-icons/hi";
-import { HiViewColumns } from "react-icons/hi2";
 import Logout from "../features/auth/Logout";
 const options = [
   {
@@ -38,8 +28,14 @@ const options = [
   {
     name: "Users",
     to: "users",
-    icon: <AiOutlineUser className="w-6 h-6" />,
+    icon: <HiUser className="w-6 h-6" />,
     id: 4,
+  },
+  {
+    name: "Category",
+    to: "category",
+    icon: <MdCategory className="w-6 h-6" />,
+    id: 5,
   },
 ];
 

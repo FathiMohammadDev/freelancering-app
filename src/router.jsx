@@ -15,6 +15,7 @@ import ProtectedRoutes from "./ui/ProtectedRoutes";
 import AdminLayout from "./layouts/AdminLayout";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
 import UsersPage from "./pages/UsersPage";
+import CategoryPage from "./pages/CategoryPage";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -62,6 +63,7 @@ export const router = createBrowserRouter([
       { path: "projects/:id", element: <ProjectPage /> },
       { path: "proposals", element: <ProposalsPage /> },
       { path: "users", element: <UsersPage /> },
+      { path: "category", element: <CategoryPage /> },
     ],
   },
   { path: "*", element: <NotFoundPage /> },

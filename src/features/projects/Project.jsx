@@ -69,7 +69,7 @@ const Project = ({ project, projectNum }) => {
               onClose={() => setShowEditProject(false)}
             />
           </Modal>
-          <Link to={`/owner/projects/${project._id}`}>
+          <Link to={`/${desierdPath}/projects/${project._id}`}>
             <IoMdEye className="w-5 h-5 cursor-pointer text-success" />
           </Link>
         </div>
