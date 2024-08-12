@@ -7,7 +7,7 @@ import ConfirmDelete from "../../ui/ConfirmDelete";
 import { useRemoveOwnerProject } from "./useRemoveOwnerProject";
 import CreateOwnerProjectForm from "./CreateOwnerProjectForm";
 import ToggleProjectStatus from "./ToggleProjectStatus";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { IoMdEye } from "react-icons/io";
 
 const Project = ({ project, projectNum }) => {
@@ -15,7 +15,9 @@ const Project = ({ project, projectNum }) => {
   const [showEditProject, setShowEditProject] = useState(false);
   const { mutate: removeProject, isPending: disabled } =
     useRemoveOwnerProject();
-
+  const { pathname } = useLocation();
+  const desierdPath = pathname.split("/").at(1);
+  console.log(desierdPath);
   return (
     <tr className="bg-bg_primary border-b-[1px] border-border ">
       <td className="px-6 py-4">{projectNum}</td>
@@ -23,7 +25,7 @@ const Project = ({ project, projectNum }) => {
         scope="row"
         className="px-6 py-4 font-medium text-text_primary whitespace-nowrap"
       >
-        <Link to={`/owner/projects/${project._id}`}>
+        <Link to={`/${desierdPath}/projects/${project._id}`}>
           {truncate(project.title, 24)}
         </Link>
       </th>

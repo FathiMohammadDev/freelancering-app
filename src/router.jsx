@@ -59,6 +59,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Navigate to="dashboard" /> },
       { path: "dashboard", element: <AdminDashboardPage /> },
       { path: "projects", element: <ProjectsPage /> },
+      { path: "projects/:id", element: <ProjectPage /> },
       { path: "proposals", element: <ProposalsPage /> },
       { path: "users", element: <UsersPage /> },
     ],
