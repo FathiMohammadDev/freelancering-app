@@ -4,6 +4,7 @@ import { useChangeProjectStatus } from "./useChangeProposalStatus";
 import { useForm } from "react-hook-form";
 import SelectField from "../../ui/SelectField";
 import { truncate } from "../../utils/truncate";
+import { useParams } from "react-router-dom";
 
 const options = [
   {
@@ -42,10 +43,11 @@ const Proposal = ({ data, index }) => {
   const { mutate, isPending } = useChangeProjectStatus();
   const [open, setOpen] = useState(false);
   const { register, handleSubmit } = useForm();
+  const {id:projectId} = useParams()
 
   const onSubmit = (values) => {
     console.log(values);
-    mutate({ id: data._id, values }, { onSuccess: () => setOpen(false) });
+    mutate({ proposalId:data._id, projectId, ...values }, { onSuccess: () => setOpen(false) });
   };
   return (
     <tr className="border-b-[1px] border-border ">
