@@ -6,6 +6,7 @@ import { MdGroupWork } from "react-icons/md";
 import { RiLogoutCircleFill } from "react-icons/ri";
 import { IoBackspaceSharp } from "react-icons/io5";
 import Logo from "../ui/Logo";
+import Logout from "../features/auth/Logout";
 const options = [
   {
     name: "Dashboard",
@@ -65,6 +66,7 @@ const OwnerSidebar = ({ open, setOpen }) => {
             icon={option.icon}
           />
         ))}
+        <Logout />
       </ul>
     </aside>
   );

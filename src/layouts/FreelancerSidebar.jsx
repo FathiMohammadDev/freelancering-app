@@ -7,6 +7,7 @@ import { RiLogoutCircleFill } from "react-icons/ri";
 import { IoBackspaceSharp } from "react-icons/io5";
 import Logo from "../ui/Logo";
 import { AiFillAlert } from "react-icons/ai";
+import Logout from "../features/auth/Logout";
 const options = [
   {
     name: "Dashboard",
@@ -66,6 +67,7 @@ const FreelancerSidebar = ({ open, setOpen }) => {
             icon={option.icon}
           />
         ))}
+        <Logout />
       </ul>
     </aside>
   );

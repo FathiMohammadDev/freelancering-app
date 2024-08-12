@@ -1,5 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { MdAccountCircle, MdViewAgenda, MdViewArray, MdViewCarousel, MdViewComfy } from "react-icons/md";
+import {
+  MdAccountCircle,
+  MdViewAgenda,
+  MdViewArray,
+  MdViewCarousel,
+  MdViewComfy,
+} from "react-icons/md";
 import { IoMdSettings, IoIosArrowBack } from "react-icons/io";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { MdGroupWork } from "react-icons/md";
@@ -9,6 +15,7 @@ import Logo from "../ui/Logo";
 import { AiFillAlert, AiOutlineUser } from "react-icons/ai";
 import { HiViewBoards, HiViewGrid } from "react-icons/hi";
 import { HiViewColumns } from "react-icons/hi2";
+import Logout from "../features/auth/Logout";
 const options = [
   {
     name: "Dashboard",
@@ -32,12 +39,6 @@ const options = [
     name: "Users",
     to: "users",
     icon: <AiOutlineUser className="w-6 h-6" />,
-    id: 3,
-  },
-  {
-    name: "Logout",
-    to: "logout",
-    icon: <RiLogoutCircleFill className="w-6 h-6" />,
     id: 4,
   },
 ];
@@ -68,6 +69,7 @@ const AdminSidebar = ({ open, setOpen }) => {
             icon={option.icon}
           />
         ))}
+        <Logout />
       </ul>
     </aside>
   );
