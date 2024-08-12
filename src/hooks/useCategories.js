@@ -18,7 +18,7 @@ export const useCategories = () => {
     })
 
 
-    return { isLoading, categories, isError }
+    return { isLoading, categories, isError, adminCategory: rawCategories }
 
 }
 
