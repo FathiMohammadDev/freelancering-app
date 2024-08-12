@@ -20,3 +20,6 @@ export function getUsersApi() {
 export function ChangeUserStatusApi({ id, data }) {
     return http.patch(`/admin/user/verify/${id}`, data).then(({ data }) => data.data);
 }
+export function logoutApi() {
+    return http.post("/user/logout").then(({ data }) => data.data);
+}
