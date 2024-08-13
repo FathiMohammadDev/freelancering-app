@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { MdAccountCircle } from "react-icons/md";
-import { IoMdSettings, IoIosArrowBack } from "react-icons/io";
+import { IoMdSettings } from "react-icons/io";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { MdGroupWork } from "react-icons/md";
 import { RiLogoutCircleFill } from "react-icons/ri";
@@ -65,6 +64,7 @@ const FreelancerSidebar = ({ open, setOpen }) => {
             to={option.to}
             name={option.name}
             icon={option.icon}
+            setOpen={setOpen}
           />
         ))}
         <Logout />
@@ -75,11 +75,12 @@ const FreelancerSidebar = ({ open, setOpen }) => {
 
 export default FreelancerSidebar;
 
-function SidebarItem({ name, icon, to }) {
+function SidebarItem({ name, icon, to, setOpen }) {
   const activeClass = "!text-text_primary  !bg-bg_active ";
   return (
     <li className="w-full font-medium">
       <NavLink
+        onClick={setOpen}
         to={to}
         className={({ isActive }) =>
           isActive
