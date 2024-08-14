@@ -5,7 +5,6 @@ const FilterDropDown = ({ options, filterValue }) => {
   const currentFilter = searchParams.get(filterValue) || "";
 
   const handleChange = (e) => {
-    console.log(e.target.value);
     searchParams.set(filterValue, e.target.value);
     setSearchParams(searchParams);
   };

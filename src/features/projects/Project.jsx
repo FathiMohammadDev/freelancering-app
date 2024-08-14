@@ -17,7 +17,6 @@ const Project = ({ project, projectNum }) => {
     useRemoveOwnerProject();
   const { pathname } = useLocation();
   const desierdPath = pathname.split("/").at(1);
-  console.log(desierdPath);
   return (
     <tr className="bg-bg_primary border-b-[1px] border-border ">
       <td className="px-6 py-4">{projectNum}</td>

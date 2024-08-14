@@ -91,7 +91,6 @@ const Layout = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const { pathname } = useLocation();
   const desierdRole = pathname.split("/").at(1);
-  console.log(options[desierdRole]);
   return (
     <div className="bg-bg_light">
       <Sidebar

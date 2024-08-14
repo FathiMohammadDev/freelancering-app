@@ -46,7 +46,6 @@ const Proposal = ({ data, index }) => {
   const {id:projectId} = useParams()
 
   const onSubmit = (values) => {
-    console.log(values);
     mutate({ proposalId:data._id, projectId, ...values }, { onSuccess: () => setOpen(false) });
   };
   return (

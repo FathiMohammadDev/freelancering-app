@@ -14,7 +14,6 @@ const statusStyle = {
 };
 
 const ProjectDetails = ({ project }) => {
-  console.log(project);
   return (
     <div className="p-5 space-y-4">
       <div className="flex items-start justify-between">

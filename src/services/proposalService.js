@@ -2,7 +2,6 @@ import http from "./httpService"
 
 
 export const changePropsalStatusApi = ({ proposalId, ...values }) => {
-    console.log(values);
     return http.patch(`proposal/${proposalId}`, values).then(({ data }) => data.data)
 }
 

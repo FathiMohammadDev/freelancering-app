@@ -18,7 +18,6 @@ const statusStyle = {
 };
 
 const Project = ({ project }) => {
-  console.log(project);
   const [open, setOpen] = useState(false);
   return (
     <>

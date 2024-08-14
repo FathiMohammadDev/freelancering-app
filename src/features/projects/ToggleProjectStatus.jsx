@@ -11,7 +11,6 @@ function ToggleProjectStatus({ project }) {
   const toggleHandler = () => {
     const newStatus = status === "OPEN" ? "CLOSED" : "OPEN";
     const values = { id: project._id, values: { status: newStatus } };
-    console.log(values);
     toggleProject(values);
   };
 

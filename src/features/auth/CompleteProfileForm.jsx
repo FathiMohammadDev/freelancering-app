@@ -20,7 +20,6 @@ const CompleteProfileForm = () => {
   });
 
   const sumbitFormHandler = async (values) => {
-    console.log(values);
     try {
       const { data } = await mutateAsync(values);
       toast.success(data.data.message);
