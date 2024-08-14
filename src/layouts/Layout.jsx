@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { HiUser } from "react-icons/hi";
-import Sidebar from "./SideBar";
+import Sidebar from "./Sidebar";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import {
   MdAccountCircle,
