@@ -1,48 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { IoMdSettings } from "react-icons/io";
-import { TbLayoutDashboardFilled } from "react-icons/tb";
-import { MdGroupWork } from "react-icons/md";
-import { RiLogoutCircleFill } from "react-icons/ri";
 import { IoBackspaceSharp } from "react-icons/io5";
 import Logo from "../ui/Logo";
-import { AiFillAlert } from "react-icons/ai";
 import Logout from "../features/auth/Logout";
 import { useRef } from "react";
-import {useOutsideClick} from "../hooks/useOutsideClick"
-const options = [
-  {
-    name: "Dashboard",
-    to: "dashboard",
-    icon: <TbLayoutDashboardFilled className="w-6 h-6" />,
-    id: 1,
-  },
-  {
-    name: "Projects",
-    to: "projects",
-    icon: <MdGroupWork className="w-6 h-6" />,
-    id: 2,
-  },
-  {
-    name: "Proposals",
-    to: "proposals",
-    icon: <AiFillAlert className="w-6 h-6" />,
-    id: 3,
-  },
-  {
-    name: "Logout",
-    to: "logout",
-    icon: <RiLogoutCircleFill className="w-6 h-6" />,
-    id: 4,
-  },
-  {
-    name: "setting",
-    to: "settnig",
-    icon: <IoMdSettings className="w-6 h-6" />,
-    id: 5,
-  },
-];
+import { useOutsideClick } from "../hooks/useOutsideClick";
 
-const FreelancerSidebar = ({ open, setOpen }) => {
+const Sidebar = ({ open, setOpen, options }) => {
+  console.log(options);
   const ref = useRef();
   useOutsideClick(ref, open, setOpen);
   return (
@@ -78,7 +42,7 @@ const FreelancerSidebar = ({ open, setOpen }) => {
   );
 };
 
-export default FreelancerSidebar;
+export default Sidebar;
 
 function SidebarItem({ name, icon, to, setOpen }) {
   const activeClass = "!text-text_primary  !bg-bg_active ";

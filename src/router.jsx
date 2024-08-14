@@ -16,6 +16,7 @@ import AdminLayout from "./layouts/AdminLayout";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
 import UsersPage from "./pages/UsersPage";
 import CategoryPage from "./pages/CategoryPage";
+import Layout from "./layouts/Layout";
 
 export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
     path: "/owner",
     element: (
       <ProtectedRoutes>
-        <OwnerLayout />
+        <Layout />
       </ProtectedRoutes>
     ),
     children: [
@@ -39,7 +40,7 @@ export const router = createBrowserRouter([
     path: "/freelancer",
     element: (
       <ProtectedRoutes>
-        <FreelancerLayout />
+        <Layout />
       </ProtectedRoutes>
     ),
     children: [
@@ -53,7 +54,7 @@ export const router = createBrowserRouter([
     path: "/admin",
     element: (
       <ProtectedRoutes>
-        <AdminLayout />
+        <Layout />
       </ProtectedRoutes>
     ),
     children: [
