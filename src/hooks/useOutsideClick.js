@@ -5,13 +5,16 @@ export const useOutsideClick = (modalRef, open, onClose) => {
     useEffect(() => {
 
         const clickHandler = (e) => {
-            if (e.target === modalRef.current) {
+            const go = []
+            console.log(modalRef.current);
+            if (modalRef.current && !modalRef.current.contains(e.target.current)) {
+                console.log(true);
                 onClose()
             }
         }
 
         if (open === true && modalRef) {
-            document.addEventListener("click", clickHandler)
+            document.addEventListener("click", clickHandler, true)
         }
 
         return () => {

@@ -7,6 +7,8 @@ import { IoBackspaceSharp } from "react-icons/io5";
 import Logo from "../ui/Logo";
 import { AiFillAlert } from "react-icons/ai";
 import Logout from "../features/auth/Logout";
+import { useRef } from "react";
+import {useOutsideClick} from "../hooks/useOutsideClick"
 const options = [
   {
     name: "Dashboard",
@@ -41,8 +43,11 @@ const options = [
 ];
 
 const FreelancerSidebar = ({ open, setOpen }) => {
+  const ref = useRef();
+  useOutsideClick(ref, open, setOpen);
   return (
     <aside
+      ref={ref}
       className={`z-40 w-[265px] p-8  ${
         open
           ? "-translate-x-0 md:-translate-x-0"
