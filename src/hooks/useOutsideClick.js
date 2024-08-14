@@ -1,26 +1,18 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 
-export const useOutsideClick = (modalRef, open, onClose) => {
+export  function useOutsideClick(ref, open, handler, listenCapturing = true) {
 
     useEffect(() => {
-
-        const clickHandler = (e) => {
-            const go = []
-            console.log(modalRef.current);
-            if (modalRef.current && !modalRef.current.contains(e.target.current)) {
-                console.log(true);
-                onClose()
+        function handleClick(e) {
+            if (ref.current && !ref.current.contains(e.target)) {
+                handler();
             }
         }
 
-        if (open === true && modalRef) {
-            document.addEventListener("click", clickHandler, true)
-        }
+        document.addEventListener("click", handleClick, listenCapturing);
 
-        return () => {
-            document.removeEventListener("click", clickHandler)
-        }
-
-    }, [open])
+        return () =>
+            document.removeEventListener("click", handleClick, listenCapturing);
+    }, [handler, listenCapturing]);
 
 }

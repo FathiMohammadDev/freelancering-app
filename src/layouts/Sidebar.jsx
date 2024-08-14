@@ -6,7 +6,6 @@ import { useRef } from "react";
 import { useOutsideClick } from "../hooks/useOutsideClick";
 
 const Sidebar = ({ open, setOpen, options }) => {
-  console.log(options);
   const ref = useRef();
   useOutsideClick(ref, open, setOpen);
   return (
