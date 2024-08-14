@@ -1,15 +1,16 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
-import DarkMode from "../ui/DarkMode";
-import User from "../features/auth/User";
-import FreelancerSidebar from "./FreelancerSidebar";
-import { HiMenuAlt2, HiUser } from "react-icons/hi";
+import { HiUser } from "react-icons/hi";
 import Sidebar from "./SideBar";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
-import { MdAccountCircle, MdCategory, MdGroupWork, MdViewAgenda } from "react-icons/md";
+import {
+  MdAccountCircle,
+  MdCategory,
+  MdGroupWork,
+  MdViewAgenda,
+} from "react-icons/md";
 import { AiFillAlert } from "react-icons/ai";
-import { RiLogoutCircleFill } from "react-icons/ri";
-import { IoMdSettings } from "react-icons/io";
+import Header from "./Header";
 
 const options = {
   freelancer: [
@@ -99,13 +100,7 @@ const Layout = () => {
         setOpen={() => setOpenSidebar(false)}
       />
       <div className="md:ml-[265px] min-h-screen">
-        <div className="bg-bg_primary p-3 flex items-center gap-4 sticky top-0">
-          <div className="md:hidden" onClick={() => setOpenSidebar(true)}>
-            <HiMenuAlt2 className="w-7 h-7 cursor-pointer text-text_secondary" />
-          </div>
-          <DarkMode />
-          <User />
-        </div>
+        <Header setOpen={() => setOpenSidebar(true)} />
         <Outlet />
       </div>
     </div>
