@@ -22,7 +22,7 @@ const CreateProposalForm = ({ projectId,onClose }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
       <TextField
         register={register}
         errors={errors}
@@ -59,7 +59,7 @@ const CreateProposalForm = ({ projectId,onClose }) => {
         }}
         name="price"
       />
-      <button className="form-btn">Edit project</button>
+      <button className="form-btn">Create Proposal</button>
     </form>
   );
 };

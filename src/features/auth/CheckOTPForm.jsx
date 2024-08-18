@@ -39,7 +39,7 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler, onBack }) => {
     }
   };
   return (
-    <div className="text-center">
+    <div className=" w-full p-10 md:px-20">
       <h1 className="text-xl font-medium text-text_bold">OTP Code</h1>
       <p className="text-text_light text-sm py-2">
         Please type a OTP verification code

@@ -13,7 +13,7 @@ const FilterDropDown = ({ options, filterValue }) => {
     <select
       value={currentFilter}
       onChange={(e) => handleChange(e)}
-      className="input-field md:w-56"
+      className="input-field flex-[1_1_15rem]"
     >
       {options.map((opt) => (
         <option key={opt.value} value={opt.label}>

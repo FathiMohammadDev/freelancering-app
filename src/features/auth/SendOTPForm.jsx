@@ -14,12 +14,8 @@ const SendOTPForm = ({ sendOtpHandler, isPending }) => {
   } = useForm();
 
   return (
-    <div className="text-center">
+    <div className="space-y-10 w-full p-10 md:px-20">
       <h1 className="text-xl font-medium text-text_bold">Create account</h1>
-      <p className="text-text_light text-sm py-2">
-        Please type your mobile number to
-        <br /> send OTP code
-      </p>
       <form className="space-y-4" onSubmit={handleSubmit(sumbitFormHandler)}>
         <TextField
           placeholder="0918 663 3451"

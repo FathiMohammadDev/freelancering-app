@@ -30,22 +30,47 @@ const AuthContainer = () => {
     switch (step) {
       case 1:
         return (
-          <SendOTPForm sendOtpHandler={sendOtpHandler} isPending={isPending} />
+          <div className="flex w-full md:items-center justify-center h-screen">
+            <div className=" rounded-e-3xl bg-primary w-full h-full p-20 md:flex justify-center flex-col hidden">
+              <h1 className="text-2xl text-white font-bold">
+                Welcome to freelancering
+              </h1>
+              <p className="text-sm text-white mt-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit <br />{" "}
+                Aliquid Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eum
+              </p>
+            </div>
+            <SendOTPForm
+              sendOtpHandler={sendOtpHandler}
+              isPending={isPending}
+            />
+          </div>
         );
       case 2:
         return (
-          <CheckOTPForm
-            phoneNumber={phoneNumber}
-            sendOtpHandler={sendOtpHandler}
-            onBack={() => setStep(1)}
-          />
+          <div className="flex w-full md:items-center justify-center h-screen">
+            <CheckOTPForm
+              phoneNumber={phoneNumber}
+              sendOtpHandler={sendOtpHandler}
+              onBack={() => setStep(1)}
+            />
+            <div className=" rounded-s-3xl bg-primary w-full h-full p-20 md:flex justify-center flex-col hidden">
+              <h1 className="text-2xl text-white font-bold">OTP Code</h1>
+              <p className="text-sm text-white mt-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit <br />{" "}
+                Aliquid Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eum
+              </p>
+            </div>
+          </div>
         );
       default:
         return null;
     }
   };
 
-  return <div className="w-full mx-auto p-5">{renderForms()}</div>;
+  return <div className="">{renderForms()}</div>;
 };
 
 export default AuthContainer;

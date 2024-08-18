@@ -68,7 +68,7 @@ const Proposal = ({ data, index }) => {
       <td className="px-6 py-4">
         <button
           onClick={() => setOpen(!open)}
-          className="btn bg-bg_active border border-border"
+          className="btn bg-primary bg-opacity-80 text-white"
         >
           Change
         </button>

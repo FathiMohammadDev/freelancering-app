@@ -2,12 +2,11 @@ import { NavLink } from "react-router-dom";
 import { IoBackspaceSharp } from "react-icons/io5";
 import Logo from "../ui/Logo";
 import Logout from "../features/auth/Logout";
-import { useRef } from "react";
 import { useOutsideClick } from "../hooks/useOutsideClick";
 
 const Sidebar = ({ open, setOpen, options }) => {
-  const ref = useRef();
-  useOutsideClick(ref, open, setOpen);
+  const ref = useOutsideClick(setOpen);
+
   return (
     <aside
       ref={ref}
@@ -20,7 +19,7 @@ const Sidebar = ({ open, setOpen, options }) => {
       <Logo />
       {open && (
         <IoBackspaceSharp
-          className="md:hidden fixed -top-14 left-[235px] w-6 h-6"
+          className="md:hidden fixed text-text_primary -top-14 left-[235px] cursor-pointer w-8 h-8"
           onClick={setOpen}
         />
       )}

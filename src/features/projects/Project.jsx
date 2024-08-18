@@ -41,12 +41,13 @@ const Project = ({ project, projectNum }) => {
             onClick={() => setShowRemoveProject(true)}
           />
           <Modal
+          title="Delete Project"
             open={showRemoveProject}
-            onClose={() => setShowRemoveProject(!showRemoveProject)}
+            onClose={() => setShowRemoveProject(false)}
           >
             <ConfirmDelete
               title={project.title}
-              onClose={() => setShowRemoveProject(!showRemoveProject)}
+              onClose={() => setShowRemoveProject(false)}
               disabled={disabled}
               onConfirm={() =>
                 removeProject(project._id, {
@@ -60,8 +61,10 @@ const Project = ({ project, projectNum }) => {
             onClick={() => setShowEditProject(true)}
           />
           <Modal
+          createProject={true}
+          title="Edit Project"
             open={showEditProject}
-            onClose={() => setShowEditProject(!showEditProject)}
+            onClose={() => setShowEditProject(false)}
           >
             <CreateOwnerProjectForm
               projectToEdit={project}

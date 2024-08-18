@@ -51,24 +51,33 @@
 }
 
 .rti--container {
-    /* background-color: rgb(241, 245, 249); */
-    border: 1px solid rgb(235, 235, 235);
+    background-color: transparent;
     width: 100%;
-    border-radius: 35px;
-    --rti-radius: "0.375rem",
+    border: 0;
+    outline: 0;
+    padding: 0;
+    --rti-radius: "20px",
         --rti-s: "0.5rem",
         /* spacing */
-        --rti-tag: "#edf2f7",
+        --rti-tag: "#000",
         --rti-tag-remove: "#e53e3e",
 }
 
+.rti--container input {
+    border: 1px solid rgb(235, 235, 235);
+}
+
 @layer components {
+    .rti--container {
+        @apply
+    }
+
     .form-btn {
-        @apply w-full bg-[#101010] opacity-85 text-white p-[9px] rounded-[35px] flex items-center justify-center disabled:opacity-50 transition-all ease-in-out
+        @apply text-sm font-semibold bg-primary text-white py-3 px-10 rounded-lg flex items-center justify-center disabled:opacity-50 transition-all ease-in-out
     }
 
     .form-btn:hover {
-        @apply bg-opacity-90 tracking-wide
+        @apply translate-x-1 shadow-md
     }
 
     .form-btn:active {
@@ -76,23 +85,27 @@
     }
 
     .btn {
-        @apply py-2 px-4 text-sm font-semibold rounded-2xl
+        @apply py-1 px-4 text-sm font-medium rounded-2xl transition-all
+    }
+    .btn:hover {
+        @apply bg-opacity-70
     }
 
     .input-field {
-        @apply w-full text-text_primary outline-0 border border-border rounded-[35px] py-2 px-4 placeholder:text-text_secondary dark:bg-bg_primary
+        @apply text-sm font-medium w-full text-text_primary outline-0 border border-border rounded-lg py-3 px-4 placeholder:text-text_secondary dark:bg-bg_primary
     }
 
     .err {
-        @apply text-xs text-error self-start
+        @apply text-xs text-error self-start capitalize
     }
 
     .label {
-        @apply pointer-events-none text-right text-text_primary text-sm font-medium
+        @apply text-text_secondary text-sm font-medium capitalize
     }
 
     .img-shadow {
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;    }
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+    }
 
     .checkerboard {
         padding: 6rem;
@@ -101,4 +114,54 @@
         background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
         z-index: 20;
     }
+
+    .bounce {
+        animation-name: bounce;
+        animation-duration: .5s;
+        animation-delay: 0.25s;
+    }
+
+    /* This approximates the ease-in-out-bounce animation from easings.net, which would require a plug-in to use*/
+    @keyframes bounce {
+        0% {
+            transform: translateX(0px);
+            timing-function: ease-in;
+        }
+
+        37% {
+            transform: translateX(5px);
+            timing-function: ease-out;
+        }
+
+        55% {
+            transform: translateX(-5px);
+            timing-function: ease-in;
+        }
+
+        73% {
+            transform: translateX(4px);
+            timing-function: ease-out;
+        }
+
+        82% {
+            transform: translateX(-4px);
+            timing-function: ease-in;
+        }
+
+        91% {
+            transform: translateX(2px);
+            timing-function: ease-out;
+        }
+
+        96% {
+            transform: translateX(-2px);
+            timing-function: ease-in;
+        }
+
+        100% {
+            transform: translateX(0px);
+            timing-function: ease-in;
+        }
+    }
+
 }

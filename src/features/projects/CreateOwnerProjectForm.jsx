@@ -70,7 +70,10 @@ const CreateOwnerProjectForm = ({ onClose, projectToEdit = {} }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="block md:grid grid-cols-2 grid-rows-3 gap-4"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <TextField
         register={register}
         errors={errors}
@@ -79,6 +82,10 @@ const CreateOwnerProjectForm = ({ onClose, projectToEdit = {} }) => {
           minLength: {
             value: 11,
             message: "should be 11 character",
+          },
+          maxLength: {
+            value: 30,
+            message: "should be 30 character",
           },
         }}
         name="title"

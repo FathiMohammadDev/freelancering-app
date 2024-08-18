@@ -8,20 +8,16 @@ const TextField = ({
 }) => {
   return (
     <div className="flex flex-col justify-center items-start gap-2">
-      <label
-        className="label"
-      >
-        {name}:
-      </label>
+      <div className="w-full flex items-center justify-between">
+        <label className="label">{name}:</label>
+        <span className="err">{errors && errors[name]?.message}</span>
+      </div>
       <input
         {...register(name, validationschema)}
         type={type}
-        className="input-field"
+        className={`${errors && errors[name]?.message && "bounce"} input-field`}
         placeholder={placeholder}
       />
-      <span className="err">
-        {errors && errors[name]?.message}
-      </span>
     </div>
   );
 };

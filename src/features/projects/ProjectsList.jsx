@@ -29,7 +29,12 @@ const ProjectsList = () => {
           >
             Add project
           </button>
-          <Modal open={open} onClose={() => setOpen(false)}>
+          <Modal
+            createProject={true}
+            title="Create new project"
+            open={open}
+            onClose={() => setOpen(false)}
+          >
             <CreateOwnerProjectForm onClose={() => setOpen(false)} />
           </Modal>
         </div>
