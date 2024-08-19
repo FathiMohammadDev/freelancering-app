@@ -13,7 +13,7 @@ const ProjectListHeader = () => {
 
   return (
     <div>
-      <h2 className="font-bold text-text_primary">Projects</h2>
+      <h2 className="font-bold text-text_primary mb-4">Projects</h2>
       <div className="flex gap-x-10 gap-y-5 flex-wrap items-center">
         <FilterDropDown
           options={[

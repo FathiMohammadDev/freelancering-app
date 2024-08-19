@@ -17,8 +17,8 @@ const Category = ({ category, catNum }) => {
       >
         {category.title}
       </th>
-      <td className="px-6 py-4">{truncate(category.description, 30)}</td>
-      <td className="px-6 py-4">{category.type}</td>
+      <td className="px-6 py-4 hidden md:table-cell">{truncate(category.description, 30)}</td>
+      <td className="px-6 py-4 hidden md:table-cell">{category.type}</td>
       <td className="px-6 py-4">
         <div className="flex items-center justify-center gap-5">
           <MdDelete
@@ -27,11 +27,11 @@ const Category = ({ category, catNum }) => {
           />
           <Modal
             open={showRemoveCat}
-            onClose={() => setShowRemoveCat(!showRemoveCat)}
+            onClose={() => setShowRemoveCat(false)}
           >
             <ConfirmDelete
               title={category.title}
-              onClose={() => setShowRemoveCat(!showRemoveCat)}
+              onClose={() => setShowRemoveCat(false)}
               disabled={isPending}
               onConfirm={() =>
                 mutate(category._id, {

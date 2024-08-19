@@ -1,13 +1,13 @@
-import { HiOutlineUser, HiOutlineUserCircle } from "react-icons/hi";
+import { FaCircleUser } from "react-icons/fa6";
 import useUser from "./useUser";
 
 const User = () => {
   const { isLoading, user } = useUser();
   return (
     <div
-      className={`${isLoading && "opacity-20"} flex items-center justify-center`}
+      className={`${isLoading && "opacity-20"} flex gap-2 items-center justify-center`}
     >
-      <HiOutlineUserCircle className="w-7 h-7 cursor-pointer text-text_secondary" />
+      <FaCircleUser className="w-7 h-7 cursor-pointer text-text_secondary" />
       <span className="text-text_secondary">{user?.name}</span>
     </div>
   );

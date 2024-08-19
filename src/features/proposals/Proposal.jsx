@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { truncate } from "../../utils/truncate";
 const statusStyle = [
   {
@@ -21,17 +20,15 @@ const statusStyle = [
 const Proposal = ({ proposal, projectNum }) => {
   return (
     <tr className="bg-bg_primary border-b-[1px] border-border ">
-      <td className="px-6 py-4">{projectNum}</td>
+      <td className="px-6 py-4 hidden md:table-cell">{projectNum}</td>
       <th
         scope="row"
         className="px-6 py-4 font-medium text-text_primary whitespace-nowrap"
       >
-        <Link to={`/freelancer/proposals/${proposal._id}`}>
-          {truncate(proposal.description, 50)}
-        </Link>
+        {truncate(proposal.description, 25)}
       </th>
-      <td className="px-6 py-4">{proposal.price}$</td>
-      <td className="px-6 py-4">{proposal.duration} day</td>
+      <td className="px-6 py-4 hidden md:table-cell">{proposal.price}$</td>
+      <td className="px-6 py-4 hidden md:table-cell">{proposal.duration} day</td>
       <td className="px-6 py-4">
         <div className={`${statusStyle[proposal.status].style}`}>
           {statusStyle[proposal.status].label}

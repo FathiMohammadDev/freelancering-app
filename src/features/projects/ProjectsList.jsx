@@ -61,18 +61,18 @@ const Thead = () => {
   return (
     <thead className="text-xs text-text_secondary font-bold">
       <tr>
-        <th className="px-6 py-3">#</th>
+        <th className="px-6 py-3 hidden md:table-cell">#</th>
         <th className="px-6 py-3">Project name</th>
         <th scope="col" className="px-6 py-3">
           Status
         </th>
-        <th scope="col" className="px-6 py-3">
+        <th scope="col" className="px-6 py-3 hidden md:table-cell">
           Category
         </th>
-        <th scope="col" className="px-6 py-3">
+        <th scope="col" className="px-6 py-3 hidden md:table-cell">
           Price
         </th>
-        <th scope="col" className="px-6 py-3">
+        <th scope="col" className="px-6 py-3 hidden md:table-cell">
           deadline
         </th>
         <th scope="col" className="px-6 py-3">

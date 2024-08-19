@@ -59,10 +59,10 @@ const Thead = () => {
       <tr>
         <th className="px-6 py-3">#</th>
         <th className="px-6 py-3">Categori name</th>
-        <th scope="col" className="px-6 py-3">
+        <th scope="col" className="px-6 py-3 hidden md:table-cell">
           Description
         </th>
-        <th scope="col" className="px-6 py-3">
+        <th scope="col" className="px-6 py-3 hidden md:table-cell">
           Type
         </th>
         <th scope="col" className="px-6 py-3">

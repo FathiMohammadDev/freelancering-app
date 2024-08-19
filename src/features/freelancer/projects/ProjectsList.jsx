@@ -14,7 +14,7 @@ const ProjectsList = () => {
           ther is no project. create project
         </p>
       ) : (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-5">
           {projects.map((project) => (
             <Project project={project} key={project._id} />
           ))}

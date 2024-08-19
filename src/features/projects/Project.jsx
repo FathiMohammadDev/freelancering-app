@@ -19,7 +19,7 @@ const Project = ({ project, projectNum }) => {
   const desierdPath = pathname.split("/").at(1);
   return (
     <tr className="bg-bg_primary border-b-[1px] border-border ">
-      <td className="px-6 py-4">{projectNum}</td>
+      <td className="px-6 py-4 hidden md:table-cell">{projectNum}</td>
       <th
         scope="row"
         className="px-6 py-4 font-medium text-text_primary whitespace-nowrap"
@@ -31,9 +31,13 @@ const Project = ({ project, projectNum }) => {
       <td className="px-6 py-4">
         <ToggleProjectStatus project={project} />
       </td>
-      <td className="px-6 py-4">{project.category.title}</td>
-      <td className="px-6 py-4">{project.budget}$</td>
-      <td className="px-6 py-4">{toLocalDate(project.deadline)}</td>
+      <td className="px-6 py-4 hidden md:table-cell">
+        {project.category.title}
+      </td>
+      <td className="px-6 py-4 hidden md:table-cell">{project.budget}$</td>
+      <td className="px-6 py-4 hidden md:table-cell">
+        {toLocalDate(project.deadline)}
+      </td>
       <td className="px-6 py-4">
         <div className="flex items-center justify-center gap-5">
           <MdDelete
@@ -41,7 +45,7 @@ const Project = ({ project, projectNum }) => {
             onClick={() => setShowRemoveProject(true)}
           />
           <Modal
-          title="Delete Project"
+            title="Delete Project"
             open={showRemoveProject}
             onClose={() => setShowRemoveProject(false)}
           >
@@ -61,8 +65,8 @@ const Project = ({ project, projectNum }) => {
             onClick={() => setShowEditProject(true)}
           />
           <Modal
-          createProject={true}
-          title="Edit Project"
+            createProject={true}
+            title="Edit Project"
             open={showEditProject}
             onClose={() => setShowEditProject(false)}
           >

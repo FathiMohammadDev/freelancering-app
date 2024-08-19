@@ -49,16 +49,18 @@ const User = ({ user, userNum }) => {
 
   return (
     <tr className="bg-bg_primary border-b-[1px] border-border ">
-      <td className="px-6 py-4">{userNum}</td>
+      <td className="px-6 py-4 hidden md:table-cell">{userNum}</td>
       <td className="px-6 py-4">{user.name}</td>
       <th
         scope="row"
-        className="px-6 py-4 font-medium text-text_primary whitespace-nowrap"
+        className=" hidden md:table-cell px-6 py-4 font-medium text-text_primary whitespace-nowrap"
       >
         {user.email}
       </th>
-      <td className="px-6 py-4">{user.phoneNumber}</td>
-      <td className="px-6 py-4">{user.role.toLowerCase()}</td>
+      <td className="px-6 py-4 hidden md:table-cell">{user.phoneNumber}</td>
+      <td className="px-6 py-4 hidden md:table-cell">
+        {user.role.toLowerCase()}
+      </td>
       <td className="px-6 py-4">
         <div className={`${statusStyle[user.status].style}`}>
           {statusStyle[user.status].label}

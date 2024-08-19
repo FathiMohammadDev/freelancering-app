@@ -16,7 +16,7 @@ const statusStyle = {
 const ProjectDetails = ({ project }) => {
   return (
     <div className="p-5 space-y-4">
-      <div className="flex items-start justify-between">
+      <div className="flex items-start justify-between gap-8">
         <div className="flex gap-4 items-start">
           <div className="space-y-2">
             <h1 className="text-xl font-bold text-text_primary">

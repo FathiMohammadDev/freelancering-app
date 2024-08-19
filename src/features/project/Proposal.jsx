@@ -43,23 +43,26 @@ const Proposal = ({ data, index }) => {
   const { mutate, isPending } = useChangeProjectStatus();
   const [open, setOpen] = useState(false);
   const { register, handleSubmit } = useForm();
-  const {id:projectId} = useParams()
+  const { id: projectId } = useParams();
 
   const onSubmit = (values) => {
-    mutate({ proposalId:data._id, projectId, ...values }, { onSuccess: () => setOpen(false) });
+    mutate(
+      { proposalId: data._id, projectId, ...values },
+      { onSuccess: () => setOpen(false) }
+    );
   };
   return (
     <tr className="border-b-[1px] border-border ">
-      <td className="px-6 py-4">{index}</td>
+      <td className="px-6 py-4 hidden md:table-cell">{index}</td>
       <th
         scope="row"
         className="px-6 py-4 font-medium text-text_primary whitespace-nowrap"
       >
         {truncate(data.description, 24)}
       </th>
-      <td className="px-6 py-4">{data.user.name}</td>
-      <td className="px-6 py-4">{data.price}$</td>
-      <td className="px-6 py-4">{data.duration}</td>
+      <td className="px-6 py-4 hidden md:table-cell">{data.user.name}</td>
+      <td className="px-6 py-4 hidden md:table-cell">{data.price}$</td>
+      <td className="px-6 py-4 hidden md:table-cell">{data.duration}</td>
       <td className="px-6 py-4">
         <div className={`${statusStyle[data.status].style}`}>
           {statusStyle[data.status].label}

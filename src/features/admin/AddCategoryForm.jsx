@@ -16,12 +16,7 @@ const AddCategoryForm = ({ onClose }) => {
     mutate(newData, { onSuccess: () => onClose() });
   };
   return (
-    <div className="space-y-4 p-5bg-slate-400">
-      <p className="text-text_secondary text-center text-sm py-2 pb-5">
-        Complete your profile to activat your
-        <br /> account app
-      </p>
-      <form className="space-y-2" onSubmit={handleSubmit(sumbitFormHandler)}>
+      <form className="space-y-4" onSubmit={handleSubmit(sumbitFormHandler)}>
         <TextField
           register={register}
           errors={errors}
@@ -51,12 +46,11 @@ const AddCategoryForm = ({ onClose }) => {
         <button
           type="sumbit"
           disabled={isPending && true}
-          className="w-full  bg-[rgb(1,1,1)] opacity-85  text-white  p-3 rounded-[35px] disabled:opacity-30"
+          className="form-btn"
         >
           Complete
         </button>
       </form>
-    </div>
   );
 };
 

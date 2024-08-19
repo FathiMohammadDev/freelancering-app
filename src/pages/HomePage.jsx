@@ -13,8 +13,8 @@ const HomePage = () => {
   return (
     <div>
       <Header />
-      <div className="flex items-start justify-center flex-wrap gap-y-10">
-        <section className="bg-bg_primary min-h-screen flex-[1_1_30rem] pt-24 px-20 space-y-10">
+      <div className="flex items-start justify-center flex-wrap gap-y-10 bg-bg_primary">
+        <section className="bg-bg_primary md:min-h-screen flex-[1_1_30rem] p-5 pt-24 md:px-20 space-y-10">
           <h1 className="text-5xl tracking-tight text-text_primary font-bold spacin">
             Remote Freelance Jobs With Top Global Clients
           </h1>
@@ -27,12 +27,12 @@ const HomePage = () => {
           {!isLoading && user && user.status === 2 ? (
             <button
               onClick={() => navigate(user.role.toLowerCase())}
-              className="btn bg-[#010101] text-white font-normal px-8 rounded-3xl"
+              className="btn bg-primary text-white font-normal px-8 rounded-3xl"
             >
               Dashboard
             </button>
           ) : (
-            <button className="btn bg-[#010101] text-white font-normal px-8 rounded-3xl">
+            <button className="btn bg-primary text-white font-normal px-8 rounded-3xl">
               Login
             </button>
           )}
@@ -59,7 +59,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
-        <section className="flex-[1_1_15rem] bg-bg_light min-h-screen relative">
+        <section className="flex-[1_1_20rem] bg-bg_light min-h-screen relative overflow-hidden">
           <div className="z-30 overflow-hidden rounded-[170px] w-[40%] h-[450px] absolute top-10 left-20 img-shadow">
             <img src={img} className="w-full h-full object-cover shadow-2xl" />
           </div>
@@ -75,10 +75,10 @@ export default HomePage;
 
 const Header = () => {
   return (
-    <header className="bg-bg_primary flex items-center justify-between border-b border-border px-20 py-4 ">
+    <header className="bg-bg_primary flex items-center justify-between border-b border-border p-4 md:px-20 md:py-4 ">
       <Logo />
       <div className="space-x-5">
-        <button className="btn text-text_secondary  font-normal text-sm px-5 rounded-3xl">
+        <button className="btn text-text_secondary  font-normal text-sm rounded-3xl">
           Login
         </button>
         <button className="btn bg-[#010101] text-white font-normal text-sm px-7 rounded-3xl">

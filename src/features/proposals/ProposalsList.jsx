@@ -17,18 +17,7 @@ const ProposalsList = () => {
   return (
     <>
       <div className="relative overflow-x-auto bg-bg_primary rounded-2xl">
-        <div className="flex items-center justify-between px-6 py-3">
-          <h2 className="font-bold text-text_primary">Proposals</h2>
-          <button
-            onClick={() => setOpen(!open)}
-            className="bg-[#dcf4f4] py-2 px-4 bg-opacity-80 text-sm font-semibold text-[#4c9fa0] rounded-2xl"
-          >
-            Add proposals
-          </button>
-          <Modal open={open} onClose={() => setOpen(false)}>
-            {/* <CreateOwnerProjectForm onClose={() => setOpen(false)} /> */}
-          </Modal>
-        </div>
+        <h2 className="font-bold text-text_primary px-6 py-3">Proposals</h2>
         <table className="w-full text-sm text-left rtl:text-right text-text_secondary">
           <Thead />
           <tbody>
@@ -52,12 +41,12 @@ const Thead = () => {
   return (
     <thead className="text-xs text-text_secondary font-bold">
       <tr>
-        <th className="px-6 py-3">#</th>
+        <th className="px-6 py-3 hidden md:table-cell	">#</th>
         <th className="px-6 py-3">Description</th>
-        <th scope="col" className="px-6 py-3">
+        <th scope="col" className="px-6 py-3 hidden md:table-cell	">
           Duration
         </th>
-        <th scope="col" className="px-6 py-3">
+        <th scope="col" className="px-6 py-3 hidden md:table-cell	">
           Price
         </th>
         <th scope="col" className="px-6 py-3">

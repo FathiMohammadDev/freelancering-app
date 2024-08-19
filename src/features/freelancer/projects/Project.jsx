@@ -21,9 +21,9 @@ const Project = ({ project }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="bg-bg_primary rounded-2xl shadow-sm p-5 border border-border flex items-start justify-center flex-col md:h-46">
-        <div className="flex items-start justify-between w-full">
-          <div className="flex gap-4 items-center">
+      <div className="bg-bg_primary rounded-2xl shadow-sm p-5 border border-border flex items-start justify-between flex-col md:h-64 ">
+        <div className="flex items-start justify-between w-full gap-8">
+          <div className="flex gap-4 items-start">
             <h1 className="text-lg font-bold text-text_primary">
               {project.title}
             </h1>
@@ -31,7 +31,7 @@ const Project = ({ project }) => {
               {statusStyle[project.status].label}
             </span>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 hidden sm:block">
             <div className="text-text_primary font-bold text-sm capitalize">
               {project.category.title}
             </div>

@@ -31,8 +31,8 @@ const ProjectPage = () => {
     );
 
   return (
-    <div className="p-10 md:max-w-5xl">
-      <div className="bg-bg_primary rounded-2xl">
+    <div className="p-4 md:p-10 md:max-w-5xl">
+      <div className="bg-bg_primary rounded-2xl overflow-x-auto">
         <ProjectDetails project={project} />
         <ProposalList proposals={project.proposals} />
       </div>
