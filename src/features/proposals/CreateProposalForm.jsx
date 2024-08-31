@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useCreateProposal } from "./useCreateProposal";
-import TextField from "../../ui/TextField"
+import TextField from "../../ui/TextField";
+import Loader from "../../ui/Bars";
 
-const CreateProposalForm = ({ projectId,onClose }) => {
+const CreateProposalForm = ({ projectId, onClose }) => {
   const { isPending, mutate } = useCreateProposal();
   const {
     handleSubmit,
@@ -59,7 +60,9 @@ const CreateProposalForm = ({ projectId,onClose }) => {
         }}
         name="price"
       />
-      <button className="form-btn">Create Proposal</button>
+      <button className="form-btn">
+        {isPending ? <Loader /> : "Create Proposal"}
+      </button>
     </form>
   );
 };

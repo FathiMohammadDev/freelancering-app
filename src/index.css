@@ -73,7 +73,7 @@
     }
 
     .form-btn {
-        @apply text-sm font-semibold bg-primary text-white py-3 px-10 rounded-lg flex items-center justify-center disabled:opacity-50 transition-all ease-in-out
+        @apply text-sm font-semibold bg-primary text-white py-3 px-10 rounded-lg flex items-center justify-center transition-all ease-in-out min-w-44
     }
 
     .form-btn:hover {
@@ -87,6 +87,7 @@
     .btn {
         @apply py-1 px-4 text-sm font-medium rounded-2xl transition-all
     }
+
     .btn:hover {
         @apply bg-opacity-70
     }

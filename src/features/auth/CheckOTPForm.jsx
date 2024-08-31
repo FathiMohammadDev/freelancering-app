@@ -4,6 +4,7 @@ import OtpInput from "react-otp-input";
 import { checkOTP } from "../../services/authService";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../ui/Bars";
 
 const CheckOTPForm = ({ phoneNumber, sendOtpHandler, onBack }) => {
   const [otp, setOtp] = useState("");
@@ -69,8 +70,8 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler, onBack }) => {
             containerStyle="flex justify-center items-cnter"
           />
         </div>
-        <button type="sumbit" className="form-btn">
-          Send Code
+        <button type="sumbit" className="form-btn" disabled={isPending}>
+          {isPending ? <Loader /> : "Send code"}
         </button>
       </form>
       <button className="text-primary text-sm font-semibold" onClick={onBack}>

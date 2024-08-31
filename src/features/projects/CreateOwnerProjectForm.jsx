@@ -7,6 +7,7 @@ import DateField from "../../ui/DateField";
 import { useCategories } from "../../hooks/useCategories";
 import { useCreateOwnerProject } from "./useCreateOwnerProject";
 import { useEditOwnerProject } from "./useEditOwnerProject";
+import Loader from "../../ui/Bars";
 
 const CreateOwnerProjectForm = ({ onClose, projectToEdit = {} }) => {
   const editId = projectToEdit._id;
@@ -117,7 +118,13 @@ const CreateOwnerProjectForm = ({ onClose, projectToEdit = {} }) => {
       <SelectField name="category" options={categories} register={register} />
       <TagsField name="tags" tags={tags} onChange={setTags} />
       <DateField date={date} setDate={setDate} name="dedline" />
-      <button className="form-btn">Edit project</button>
+      <button className="form-btn">
+        {isPending || isEditing ? (
+          <Loader />
+        ) : (
+          `${editMode ? "Edit Project" : "Create Project"}`
+        )}
+      </button>
     </form>
   );
 };

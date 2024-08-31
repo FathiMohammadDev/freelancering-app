@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import TextField from "../../ui/TextField";
 import { useForm } from "react-hook-form";
+import Loader from "../../ui/Bars";
 
 const CompleteProfileForm = () => {
   const {
@@ -40,17 +41,16 @@ const CompleteProfileForm = () => {
     <div className="flex w-full md:items-center justify-center h-screen">
       <div className="bg-primary w-full h-full p-20 md:flex justify-center flex-col hidden rounded-e-3xl">
         <h1 className="text-2xl text-white font-bold">
-        Complete profile to use app
+          Complete profile to use app
         </h1>
         <p className="text-sm text-white mt-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit <br />{" "}
-                Aliquid Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eum
-              </p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit <br /> Aliquid
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+        </p>
       </div>
       <div className="space-y-4 p-16 w-full">
         <h1 className="text-2xl font-medium text-text_bold">
-          Complete profile 
+          Complete profile
         </h1>
         <form className="space-y-4" onSubmit={handleSubmit(sumbitFormHandler)}>
           <TextField
@@ -120,12 +120,8 @@ const CompleteProfileForm = () => {
               {errors && errors.role?.message}
             </span>
           </div>
-          <button
-            type="sumbit"
-            disabled={isPending && true}
-            className="form-btn"
-          >
-            Complete
+          <button type="sumbit" disabled={isPending} className="form-btn">
+            {isPending ? <Loader /> : "Complete"}
           </button>
         </form>
       </div>

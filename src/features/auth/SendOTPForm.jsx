@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import TextField from "../../ui/TextField";
-import { Bars } from "react-loader-spinner";
+import Loader from "../../ui/Bars";
 
 const SendOTPForm = ({ sendOtpHandler, isPending }) => {
   const sumbitFormHandler = (data) => {
@@ -38,20 +38,8 @@ const SendOTPForm = ({ sendOtpHandler, isPending }) => {
           }}
           name="Phone number"
         />
-        <button type="sumbit" className="form-btn" disabled={isPending && true}>
-          {isPending ? (
-            <Bars
-              height="25"
-              width="25"
-              color="#fff"
-              ariaLabel="bars-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
-          ) : (
-            "Send code"
-          )}
+        <button type="sumbit" className="form-btn" disabled={isPending}>
+          {isPending ? <Loader /> : "Send code"}
         </button>
       </form>
     </div>
