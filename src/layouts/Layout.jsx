@@ -4,7 +4,6 @@ import { HiUser } from "react-icons/hi";
 import Sidebar from "./Sidebar";
 import { TbLayoutDashboardFilled } from "react-icons/tb";
 import {
-  MdAccountCircle,
   MdCategory,
   MdGroupWork,
   MdViewAgenda,
@@ -45,12 +44,6 @@ const options = {
       to: "projects",
       icon: <MdGroupWork className="w-6 h-6" />,
       id: 2,
-    },
-    {
-      name: "Profile",
-      to: "profile",
-      icon: <MdAccountCircle className="w-6 h-6" />,
-      id: 3,
     },
   ],
   admin: [
