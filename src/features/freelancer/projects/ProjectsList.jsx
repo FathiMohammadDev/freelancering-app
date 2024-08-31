@@ -1,10 +1,11 @@
 import { useProjects } from "../../../hooks/useProjects";
+import ProjectsListSkeleton from "../../../ui/skeletons/ProjectsListSkeleton";
 import Project from "./Project";
 import ProjectListHeader from "./ProjectListHeader";
 
 const ProjectsList = () => {
   const { isLoading, projects, isError } = useProjects();
-  if (isLoading) return <p>loading...</p>;
+  if (isLoading) return <ProjectsListSkeleton />;
 
   return (
     <div className="space-y-4">
