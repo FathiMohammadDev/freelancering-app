@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Modal from "../../ui/Modal";
+import TableSkleton from "../../ui/skeletons/TableSkeleton";
 import Proposal from "./Proposal";
 import { useProposals } from "./useProposals";
 
 const ProposalsList = () => {
   const [open, setOpen] = useState(false);
   const { isLoading, proposals } = useProposals();
-  if (isLoading) return <p>lodaing...</p>;
+  if (isLoading) return <TableSkleton />;
   if (!proposals?.length)
     return (
       <p className="text-base text-slate-500 text-center">

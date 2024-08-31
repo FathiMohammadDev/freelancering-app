@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import SelectField from "../../ui/SelectField";
 import { truncate } from "../../utils/truncate";
 import { useParams } from "react-router-dom";
+import Loader from "../../ui/Bars";
 
 const options = [
   {
@@ -78,7 +79,9 @@ const Proposal = ({ data, index }) => {
         <Modal open={open} onClose={() => setOpen(false)}>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <SelectField name="status" register={register} options={options} />
-            <button className="form-btn">Change status</button>
+            <button className="form-btn">
+              {isPending ? <Loader /> : "Change Status"}
+            </button>
           </form>
         </Modal>
       </td>
