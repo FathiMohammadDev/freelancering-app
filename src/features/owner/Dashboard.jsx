@@ -1,10 +1,11 @@
+import StatsSkeleton from "../../ui/skeletons/StatsSkeleton";
 import { useOwnerProjects } from "../projects/useOwnerProjects";
 import Stats from "./Stats";
 
 const Dashboard = () => {
   const { isLoading, projects } = useOwnerProjects();
 
-  if (isLoading) return <p>lodaing...</p>;
+  if (isLoading) return <StatsSkeleton />;
 
   return (
     <div className="space-y-10">

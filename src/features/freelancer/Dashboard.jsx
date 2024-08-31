@@ -1,10 +1,11 @@
+import StatsSkeleton from "../../ui/skeletons/StatsSkeleton";
 import { useProposals } from "../proposals/useProposals";
 import Stats from "./Stats";
 
 const Dashboard = () => {
-  const { isLoading, proposals }= useProposals();
+  const { isLoading, proposals } = useProposals();
 
-  if (isLoading) return <p>lodaing...</p>;
+  if (isLoading) return <StatsSkeleton />;
 
   return (
     <div className="space-y-10">

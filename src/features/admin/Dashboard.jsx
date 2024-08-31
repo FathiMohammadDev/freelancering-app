@@ -1,3 +1,4 @@
+import StatsSkeleton from "../../ui/skeletons/StatsSkeleton";
 import { useOwnerProjects } from "../projects/useOwnerProjects";
 import { useProposals } from "../proposals/useProposals";
 import Stats from "./Stats";
@@ -8,7 +9,7 @@ const Dashboard = () => {
   const { isLoading: isLoadProjects, projects } = useOwnerProjects();
   const { isLoading: isLoadingUsers, users } = useUsers();
 
-  if (isLoadProjects || isLoadProp || isLoadingUsers) return <p>lodaing...</p>;
+  if (isLoadProjects || isLoadProp || isLoadingUsers) return <StatsSkeleton />;
 
   return (
     <div className="space-y-10">
