@@ -4,7 +4,6 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import TextField from "../../ui/TextField";
 import { useForm } from "react-hook-form";
-import Logo from "../../ui/Logo";
 
 const CompleteProfileForm = () => {
   const {
@@ -49,7 +48,7 @@ const CompleteProfileForm = () => {
                 Eum
               </p>
       </div>
-      <div className="space-y-4 p-5 w-full">
+      <div className="space-y-4 p-16 w-full">
         <h1 className="text-2xl font-medium text-text_bold">
           Complete profile 
         </h1>
@@ -86,7 +85,7 @@ const CompleteProfileForm = () => {
             <div className="flex justify-center items-center input-field w-auto">
               <label
                 htmlFor="FREELANCER"
-                className="text-[rgb(122,122,122)] font-medium"
+                className="text-text_secondary font-medium cursor-pointer"
               >
                 Freelancer
               </label>
@@ -103,7 +102,7 @@ const CompleteProfileForm = () => {
             <div className="flex justify-center items-center input-field w-auto">
               <label
                 htmlFor="OWNER"
-                className="text-[rgb(122,122,122)] font-medium"
+                className="text-text_secondary font-medium cursor-pointer"
               >
                 Owner
               </label>
