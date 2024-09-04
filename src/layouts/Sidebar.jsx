@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { IoBackspaceSharp } from "react-icons/io5";
+import { IoBackspaceSharp,IoCloseSharp } from "react-icons/io5";
 import Logo from "../ui/Logo";
 import Logout from "../features/auth/Logout";
 import { useOutsideClick } from "../hooks/useOutsideClick";
@@ -14,12 +14,12 @@ const Sidebar = ({ open, setOpen, options }) => {
         open
           ? "-translate-x-0 md:-translate-x-0"
           : "-translate-x-[265px] md:-translate-x-0"
-      } bg-bg_primary fixed top-0 h-full space-y-16 border-border border-r-[1px] transition-all `}
+      } bg-bg_primary fixed top-0 h-full space-y-16 border-border border-r-[1px] transition-all`}
     >
       <Logo />
       {open && (
-        <IoBackspaceSharp
-          className="md:hidden fixed text-text_primary -top-14 left-[235px] cursor-pointer w-8 h-8"
+        <IoCloseSharp
+          className="md:hidden fixed text-text_primary -top-14 left-[234px] cursor-pointer w-8 h-8"
           onClick={setOpen}
         />
       )}

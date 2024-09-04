@@ -32,7 +32,10 @@ const HomePage = () => {
               Dashboard
             </button>
           ) : (
-            <button className="btn bg-primary text-white font-normal px-8 rounded-3xl">
+            <button
+              onClick={() => navigate("auth")}
+              className="btn bg-primary text-white font-normal px-8 rounded-3xl"
+            >
               Login
             </button>
           )}
