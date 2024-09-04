@@ -10,7 +10,7 @@ const UsersList = () => {
   if (!users?.length)
     return (
       <p className="text-base text-slate-500 text-center">
-        ther is no project. create project
+        ther is no user
       </p>
     );
 
@@ -19,7 +19,7 @@ const UsersList = () => {
       <>
       <div className="relative overflow-x-auto bg-bg_primary rounded-2xl">
         <div className="flex items-center justify-between px-6 py-3">
-          <h2 className="font-bold text-text_primary">Projects</h2>
+          <h2 className="font-bold text-text_primary">Users</h2>
         </div>
         <table className="w-full text-sm text-left rtl:text-right text-text_secondary">
           <Thead />

@@ -62,7 +62,11 @@ const Project = ({ project }) => {
           Send proposal
         </button>
       </div>
-      <Modal open={open} onClose={() => setOpen(false)}>
+      <Modal
+        title="Create new proposal"
+        open={open}
+        onClose={() => setOpen(false)}
+      >
         <CreateProposalForm
           projectId={project._id}
           onClose={() => setOpen(false)}

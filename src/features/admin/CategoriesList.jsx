@@ -14,9 +14,24 @@ const CategoriesList = () => {
 
   if (!categories?.length)
     return (
-      <p className="text-base text-slate-500 text-center">
-        ther is no project. create project
-      </p>
+      <div className="relative overflow-x-auto bg-bg_primary rounded-2xl">
+        <div className="flex items-center justify-between px-6 py-3">
+          <h2 className="font-bold text-text_primary">Categories</h2>
+          <button
+            onClick={() => setOpen(!open)}
+            className="bg-[#dcf4f4] py-2 px-4 bg-opacity-80 text-sm font-semibold text-[#4c9fa0] rounded-2xl"
+          >
+            Add category
+          </button>
+          <Modal open={open} onClose={() => setOpen(false)}>
+            <AddCategoryForm onClose={() => setOpen(false)} />
+          </Modal>
+        </div>
+
+        <p className="text-base text-slate-500 text-center p-3">
+          ther is no category. create category
+        </p>
+      </div>
     );
 
   return (
