@@ -47,6 +47,7 @@ const CreateProposalForm = ({ projectId, onClose }) => {
           },
         }}
         name="duration"
+        type="number"
       />
       <TextField
         register={register}
@@ -59,6 +60,7 @@ const CreateProposalForm = ({ projectId, onClose }) => {
           },
         }}
         name="price"
+        type="number"
       />
       <button className="form-btn">
         {isPending ? <Loader /> : "Create Proposal"}

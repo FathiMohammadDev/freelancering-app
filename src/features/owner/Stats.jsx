@@ -10,7 +10,7 @@ const Stats = ({ projects }) => {
     0
   );
   return (
-    <div className="flex items-center justify-start flex-wrap gap-10">
+    <div className="flex items-center justify-start flex-wrap gap-5">
       <Stat
         num={numOfProjects}
         label="Projects"

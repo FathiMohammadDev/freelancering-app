@@ -9,7 +9,7 @@ function App() {
   return (
     <DarkModeProvider>
       <QueryClientProvider client={queryClient}>
-        <Toaster />
+        <Toaster position="top-right" reverseOrder={false} />
         <RouterProvider router={router} />
       </QueryClientProvider>
     </DarkModeProvider>

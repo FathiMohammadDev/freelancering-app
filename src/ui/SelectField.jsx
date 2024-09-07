@@ -8,7 +8,7 @@ const SelectField = ({ name, register, options }) => {
         </label>
         <select
           {...register(name)}
-          className="input-field"
+          className="input-field appearance-none cursor-pointer"
         >
           {options.map((option) => (
             <option key={option.value} value={option.value}>

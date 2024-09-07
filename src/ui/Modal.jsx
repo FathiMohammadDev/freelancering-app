@@ -18,7 +18,7 @@ const Modal = ({
     <div className={`${open ? openClass : closeClass}`}>
       <div
         ref={ref}
-        className={`bg-bg_primary space-y-4 rounded-2xl fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 shadow-sm w-[90%] sm:w-full ${
+        className={`bg-bg_primary space-y-4 rounded-2xl fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 shadow-sm w-[95%] sm:p-8 ${
           createProject ? "sm:max-w-5xl" : "sm:max-w-xl"
         }`}
       >

@@ -72,7 +72,7 @@ const CreateOwnerProjectForm = ({ onClose, projectToEdit = {} }) => {
 
   return (
     <form
-      className="block md:grid grid-cols-2 grid-rows-3 gap-4"
+      className="block space-y-4 md:grid grid-cols-2 grid-rows-3 gap-4"
       onSubmit={handleSubmit(onSubmit)}
     >
       <TextField
@@ -114,6 +114,7 @@ const CreateOwnerProjectForm = ({ onClose, projectToEdit = {} }) => {
           },
         }}
         name="budget"
+        type="number"
       />
       <SelectField name="category" options={categories} register={register} />
       <TagsField name="tags" tags={tags} onChange={setTags} />

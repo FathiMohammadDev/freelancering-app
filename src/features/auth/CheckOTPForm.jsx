@@ -64,6 +64,7 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler, onBack }) => {
             value={otp}
             onChange={setOtp}
             numInputs={6}
+            inputType="number"
             renderSeparator={<span>&ensp;</span>}
             renderInput={(props) => <input {...props} />}
             inputStyle="flex-1 p-4 rounded-lg text-text_light border border-solid outline-0 focus:border-primary"

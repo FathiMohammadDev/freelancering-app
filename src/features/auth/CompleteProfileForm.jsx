@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import TextField from "../../ui/TextField";
 import { useForm } from "react-hook-form";
 import Loader from "../../ui/Bars";
+import { MdOutlineClose } from "react-icons/md";
 
 const CompleteProfileForm = () => {
   const {
@@ -26,7 +27,14 @@ const CompleteProfileForm = () => {
       console.log(data);
       if (data.data.user.status !== 2) {
         navigate("/");
-        toast.error("wait for conformation");
+        toast((t) => (
+          <div className="flex items-center justify-between gap-5 text-text_secondary">
+            Please wait until your account is verified
+            <button onClick={() => toast.dismiss(t.id)}>
+              <MdOutlineClose />
+            </button>
+          </div>
+        ));
         return;
       }
       if (data.data.user.role === "OWNER") return navigate("/owner");
@@ -48,7 +56,7 @@ const CompleteProfileForm = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
         </p>
       </div>
-      <div className="space-y-4 p-16 w-full">
+      <div className="space-y-4 p-6 md:px-20 w-full">
         <h1 className="text-2xl font-medium text-text_bold">
           Complete profile
         </h1>

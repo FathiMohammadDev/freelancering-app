@@ -6,6 +6,7 @@ import { SiAntdesign } from "react-icons/si";
 import { BiSolidCube } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import useUser from "../features/auth/useUser";
+import toast from "react-hot-toast";
 
 const HomePage = () => {
   const { isLoading, user } = useUser();
@@ -63,7 +64,7 @@ const HomePage = () => {
           </div>
         </section>
         <section className="flex-[1_1_20rem] bg-bg_light min-h-screen relative overflow-hidden">
-          <div className="z-30 overflow-hidden rounded-[170px] w-[40%] h-[450px] absolute top-10 left-20 img-shadow">
+          <div className="z-30 overflow-hidden rounded-[170px] w-[50%] h-[450px] absolute top-10 left-20 img-shadow md:w-[40%]">
             <img src={img} className="w-full h-full object-cover shadow-2xl" />
           </div>
           <IoSunnySharp className="z-40 text-yellow-400 w-32 h-32 absolute top-5 left-7" />
@@ -80,14 +81,9 @@ const Header = () => {
   return (
     <header className="bg-bg_primary flex items-center justify-between border-b border-border p-4 md:px-20 md:py-4 ">
       <Logo />
-      <div className="space-x-5">
-        <button className="btn text-text_secondary  font-normal text-sm rounded-3xl">
-          Login
-        </button>
-        <button className="btn bg-[#010101] text-white font-normal text-sm px-7 rounded-3xl">
-          Signup
-        </button>
-      </div>
+      <button className="btn bg-[#010101] text-white font-normal text-sm px-7 rounded-3xl">
+        Signup
+      </button>
     </header>
   );
 };
