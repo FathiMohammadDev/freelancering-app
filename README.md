@@ -1,9 +1,30 @@
-# React + Vite
+# پلتفرم فریلنسری
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+یک پلتفرم فریلنسری کاملاً ریسپانسیو که با استفاده از **React** و **Tailwind CSS** توسعه داده شده است. درخواست‌های HTTP و مدیریت وضعیت توسط **React Query** انجام می‌شود. این پلتفرم از سه نقش مختلف پشتیبانی می‌کند: **ادمین**، **فریلنسر** و **کارفرما**.
 
-Currently, two official plugins are available:
+## ویژگی‌ها
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **پنل ادمین** برای مدیریت کاربران، پروژه‌ها و کل پلتفرم.
+- **فریلنسرها** می‌توانند پروفایل ایجاد کنند، پروژه‌ها را مرور کرده و پیشنهادات خود را ارسال کنند.
+- **کارفرماها** می‌توانند پروژه‌ها را ارسال کرده، فریلنسرها را مرور کنند و افراد مورد نظر را استخدام کنند.
+- **دریافت داده‌ها به صورت لحظه‌ای** با استفاده از **React Query** برای بهینه‌سازی درخواست‌های HTTP و همگام‌سازی وضعیت.
+- طراحی **ریسپانسیو** با استفاده از **Tailwind CSS**، که تجربه کاربری مناسبی را در دستگاه‌های مختلف ارائه می‌دهد.
+
+## تکنولوژی‌های استفاده‌شده
+
+- **React** - کتابخانه جاوااسکریپت برای ساخت رابط‌های کاربری.
+- **Tailwind CSS** - فریم‌ورک CSS با رویکرد Utility-first برای توسعه سریع رابط کاربری.
+- **React Query** - برای مدیریت درخواست‌های داده و وضعیت سرور.
+- **Axios** - برای ارسال درخواست‌های HTTP به API بک‌اند.
+- **React Router** - برای مدیریت مسیرهای مختلف سایت.
+- **JWT Authentication** - برای ورود امن و مدیریت جلسات کاربری.
+
+## نصب و راه‌اندازی
+
+برای اجرای این پروژه به صورت محلی، مراحل زیر را دنبال کنید:
+
+1. **کلون کردن مخزن:**
+   ```bash
+   git clone https://github.com/username/freelance-platform.git
+
 # freelancering-app

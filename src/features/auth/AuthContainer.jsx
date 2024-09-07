@@ -30,7 +30,7 @@ const AuthContainer = () => {
     switch (step) {
       case 1:
         return (
-          <div className="flex w-full md:items-center justify-center h-screen">
+          <div className="bg-bg_light flex w-full md:items-center justify-center h-screen">
             <div className=" rounded-e-3xl bg-primary w-full h-full p-20 md:flex justify-center flex-col hidden">
               <h1 className="text-2xl text-white font-bold">
                 Welcome to freelancering
@@ -49,7 +49,7 @@ const AuthContainer = () => {
         );
       case 2:
         return (
-          <div className="flex w-full md:items-center justify-center h-screen">
+          <div className="bg-bg_light  flex w-full md:items-center justify-center h-screen">
             <CheckOTPForm
               phoneNumber={phoneNumber}
               sendOtpHandler={sendOtpHandler}

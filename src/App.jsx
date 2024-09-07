@@ -4,6 +4,7 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 import DarkModeProvider from "./context/DarkModeContext";
 const queryClient = new QueryClient();
+document.title = "ProjectMroject"
 
 function App() {
   return (

@@ -41,8 +41,8 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler, onBack }) => {
   };
   return (
     <div className=" w-full p-10 md:px-20">
-      <h1 className="text-xl font-medium text-text_bold">OTP Code</h1>
-      <p className="text-text_light text-sm py-2">
+      <h1 className="text-xl font-medium text-text_primary">OTP Code</h1>
+      <p className="text-text_secondary text-sm py-2">
         Please type a OTP verification code
         <br />
         sent to &ensp;
@@ -67,7 +67,7 @@ const CheckOTPForm = ({ phoneNumber, sendOtpHandler, onBack }) => {
             inputType="number"
             renderSeparator={<span>&ensp;</span>}
             renderInput={(props) => <input {...props} />}
-            inputStyle="flex-1 p-4 rounded-lg text-text_light border border-solid outline-0 focus:border-primary"
+            inputStyle="flex-1 p-4 rounded-lg text-text_primary border border-solid outline-0 bg-bg_primary focus:border-primary"
             containerStyle="flex justify-center items-cnter"
           />
         </div>

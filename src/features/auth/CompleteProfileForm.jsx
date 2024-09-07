@@ -46,7 +46,7 @@ const CompleteProfileForm = () => {
   };
 
   return (
-    <div className="flex w-full md:items-center justify-center h-screen">
+    <div className="bg-bg_light flex w-full md:items-center justify-center h-screen">
       <div className="bg-primary w-full h-full p-20 md:flex justify-center flex-col hidden rounded-e-3xl">
         <h1 className="text-2xl text-white font-bold">
           Complete profile to use app
@@ -57,7 +57,7 @@ const CompleteProfileForm = () => {
         </p>
       </div>
       <div className="space-y-4 p-6 md:px-20 w-full">
-        <h1 className="text-2xl font-medium text-text_bold">
+        <h1 className="text-2xl font-medium text-text_primary">
           Complete profile
         </h1>
         <form className="space-y-4" onSubmit={handleSubmit(sumbitFormHandler)}>
