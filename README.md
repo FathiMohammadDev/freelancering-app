@@ -25,6 +25,6 @@
 
 1. **کلون کردن مخزن:**
    ```bash
-   git clone https://github.com/mfdf4415/freelancering-app.git
+   git clone https://github.com//FathiMohammadDev/freelancering-app.git
 
 # freelancering-app
